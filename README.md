@@ -2,6 +2,10 @@
 
 This repository contains artifacts to paper *TPMScan: A wide-scale study of security-relevant properties of TPM 2.0 chips* accepted to CHES 2024.
 
+```
+git clone --recursive https://github.com/crocs-muni/tpmscan-artifact
+```
+
 The structure of the artifact is following:
 
 - the `/tpmscan-dataset` directory contains the main dataset collected by tpm2-algtest tool (also available at https://github.com/crocs-muni/tpmscan-dataset)
