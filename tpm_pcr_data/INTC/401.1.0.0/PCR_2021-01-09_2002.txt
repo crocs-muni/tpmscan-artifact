@@ -1,0 +1,65 @@
+<Measurement>
+<Version>0.1.6</Version>
+<Time>2021-01-09_2002</Time>
+<TimeUnix>30860994_1371677776</TimeUnix>
+<DeviceUniqueID>7078354521308872</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Home
+OS Version:                10.0.19041 N/A Build 19041
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     19. 9. 2020, 6:35:49
+System Boot Time:          8. 1. 2021, 21:38:23
+System Manufacturer:       Razer
+System Model:              Blade
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              Razer 1.06, 5. 9. 2018
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:2.0 -Level:0-Revision:1.38-VendorID:'INTC'-Firmware:26279937.0
+  </TPM>
+  <FirmwareVersion>INTC 401.1.0.0</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">924422222aba770ae4dafa349c383babfb6bf72bf39bd94cacdacf5a1a2b5c46</PCR>
+  <PCR Index="01">f0d4ec09fc18cce79788b2bfd82afba9a1470d716cfb7c84837a5580471b47a5</PCR>
+  <PCR Index="02">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="03">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="04">d5f167f7288d9206c8fe2a7ff38ce106c76b179dc37b3f00cd9dcabeaeea79c0</PCR>
+  <PCR Index="05">663a4b2f6e60b2134ce3795c730b299882cffa07ea3b8938676a1209567aa5cd</PCR>
+  <PCR Index="06">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="07">bda8c48b6ad441dcbec066dcba1b021996ba457e66b9dbea27e50fd6e6ecec96</PCR>
+  <PCR Index="08">7ced8b4297fe36588826047ebfe6402ed1349ab84563c01c983f0e28f8496344</PCR>
+  <PCR Index="09">ed0413f14e1459c70acaaf52c439798b0fc638f61d3caaa5e187ac229e7f1480</PCR>
+  <PCR Index="10">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="11">0fe6e8f2110d5d53935c9e7d6f6bf722598b550595aabdc6e4fd2ecdf310f980</PCR>
+  <PCR Index="12">b4fd3d6257329973147a2a4f59da2fbb72c9f467b6b8ef98d9ded88b13ca7b39</PCR>
+  <PCR Index="13">0b113c2d897a9c47338231b23c2d1468e8edc80a653dd76c50376cd1d1955ae8</PCR>
+  <PCR Index="14">155c825d39ae14d9d16a9195fd39975e4deef260615723e82e6e2e8e2e93620e</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>251</OsBootCount>
+  <OsResumeCount>1</OsResumeCount>
+  <CurrentBootCount>3205424122</CurrentBootCount>
+  <CurrentEventCount>7424</CurrentEventCount>
+  <CurrentCounterId>21037057</CurrentCounterId>
+  <InitialBootCount>3205424121</InitialBootCount>
+  <InitialEventCount>7424</InitialEventCount>
+  <InitialCounterId>21037057</InitialCounterId>
+</PlatformCounters>
+<RSK>c8ac</RSK>
+<EK>b6e6</EK>
+</Measurement>

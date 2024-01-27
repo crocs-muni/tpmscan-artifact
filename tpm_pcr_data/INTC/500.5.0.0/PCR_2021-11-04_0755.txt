@@ -1,0 +1,41 @@
+<Measurement>
+<Version>0.1.8</Version>
+<Time>2021-11-04_0755</Time>
+<TimeUnix>30921041_1594134864</TimeUnix>
+<DeviceUniqueID>9010009165344949</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 11 Home
+OS Version:                10.0.22000 N/A Build 22000
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     08.10.2021, 0:47:02
+System Boot Time:          02.11.2021, 11:11:43
+System Manufacturer:       LENOVO
+System Model:              82AA
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              LENOVO DHCN32WW, 27.05.2021
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:2.0 -Level:0-Revision:1.38-VendorID:'INTC'-Firmware:32768005.0
+  </TPM>
+  <FirmwareVersion>INTC 500.5.0.0</FirmwareVersion>
+</Version>
+<Error_PcpToolGetPCRs>
+PcpToolGetPCRs: (0x80284001) V podp</Error_PcpToolGetPCRs>
+<PlatformCounters>
+  <OsBootCount>190</OsBootCount>
+  <OsResumeCount>2</OsResumeCount>
+  <CurrentBootCount>3849616804</CurrentBootCount>
+  <CurrentEventCount>5376</CurrentEventCount>
+  <CurrentCounterId>21037057</CurrentCounterId>
+  <InitialBootCount>3849616804</InitialBootCount>
+  <InitialEventCount>5376</InitialEventCount>
+  <InitialCounterId>21037057</InitialCounterId>
+</PlatformCounters>
+<RSK>da9d</RSK>
+<EK>b816</EK>
+</Measurement>

@@ -1,0 +1,63 @@
+<Measurement>
+<Version>0.1.0</Version>
+<Time>2018-04-20_1230</Time>
+<TimeUnix>30660771_1750804784</TimeUnix>
+<DeviceUniqueID>5319163255691903</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Education
+OS Version:                10.0.16299 N/A Build 16299
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     12.12.2017, 16:06:54
+System Boot Time:          12.04.2018, 15:12:59
+System Manufacturer:       Hewlett-Packard
+System Model:              HP EliteBook 820 G1
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              Hewlett-Packard L71 Ver. 01.20, 28.07.2014
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:01.02-SpecLevel:2-Errata:3-VendorID:'IFX '-Firmware:04.32
+  </TPM>
+  <FirmwareVersion>IFX  4.32</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">2144ec2a4541fab4e9f8d2e8df7d172e9aad98ae</PCR>
+  <PCR Index="01">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="02">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="03">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="04">b35d3b46bb9c22038a8c6c5cf695690f5aaf0e38</PCR>
+  <PCR Index="05">644b573ac3fa5771d4ec69f760423f34c747a4f0</PCR>
+  <PCR Index="06">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="07">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="08">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="09">0d536cb1da5850bd8b47f1924436275d01a27576</PCR>
+  <PCR Index="10">bf49fbf57be9b6a521d0ecf0d1fe5adbcca6b66c</PCR>
+  <PCR Index="11">ebb98df76613280f20dc38221143a9e727399486</PCR>
+  <PCR Index="12">82553ba624631874c51f2df35533ed178232e1eb</PCR>
+  <PCR Index="13">82a99cc19c11b37a063c9cb64732fb7f847cdcee</PCR>
+  <PCR Index="14">74e57ea565e9764f8dca85111d4bf095b14f1612</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>4</OsBootCount>
+  <OsResumeCount>0</OsResumeCount>
+  <CurrentBootCount>0</CurrentBootCount>
+  <CurrentEventCount>4</CurrentEventCount>
+  <CurrentCounterId>184012596</CurrentCounterId>
+  <InitialBootCount>0</InitialBootCount>
+  <InitialEventCount>4</InitialEventCount>
+  <InitialCounterId>184012596</InitialCounterId>
+</PlatformCounters>
+</Measurement>

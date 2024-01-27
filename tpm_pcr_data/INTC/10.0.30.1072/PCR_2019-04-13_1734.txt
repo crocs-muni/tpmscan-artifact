@@ -1,0 +1,66 @@
+<Measurement>
+<Version>0.1.6</Version>
+<Time>2019-04-13_1734</Time>
+<TimeUnix>30732831_923415024</TimeUnix>
+<DeviceUniqueID>2505907447171394</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 8.1 Pro
+OS Version:                6.3.9600 N/A Build 9600
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     15.6.2017, 15:54:31
+System Boot Time:          10.4.2019, 10:08:20
+System Manufacturer:       ASUSTeK COMPUTER INC.
+System Model:              X555LB
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              American Megatrends Inc. X555LB.603, 6.5.2016
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:2.0 -Level:0-Revision:1.03-VendorID:'INTC'-Firmware:655360.1967152
+  </TPM>
+  <FirmwareVersion>INTC 10.0.30.1072</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">3dcaea25dc86554d94b94aa5bc8f735a49212af8</PCR>
+  <PCR Index="01">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="02">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="03">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="04">21698de1328e9c25ef25bc8fd267881e9ca7e08e</PCR>
+  <PCR Index="05">53e78f627c1437836fa49fc1c53cf2d4cd4f4c39</PCR>
+  <PCR Index="06">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="07">1695a8009556e8af3d13ec202dd5102725a84cd0</PCR>
+  <PCR Index="08">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="09">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="10">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="11">ebb98df76613280f20dc38221143a9e727399486</PCR>
+  <PCR Index="12">4105f8c3ae6d383a559da40e893cb01b9e74ba21</PCR>
+  <PCR Index="13">fc76b1cfed225accaba6024a5c795682365f3cf8</PCR>
+  <PCR Index="14">fc76feaf714c844cc888ea454ddf97c0ed220b61</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>96</OsBootCount>
+  <OsResumeCount>5</OsResumeCount>
+  <CurrentBootCount>205</CurrentBootCount>
+  <CurrentEventCount>7012</CurrentEventCount>
+  <CurrentCounterId>21037057</CurrentCounterId>
+  <InitialBootCount>205</InitialBootCount>
+  <InitialEventCount>7002</InitialEventCount>
+  <InitialCounterId>21037057</InitialCounterId>
+</PlatformCounters>
+<RSK>ded5</RSK>
+<Error_PcpToolGetEK_SRK>
+PcpToolGetEK_SRK: (0x80090010) P</Error_PcpToolGetEK_SRK>
+</Measurement>

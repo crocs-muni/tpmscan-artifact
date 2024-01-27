@@ -1,0 +1,43 @@
+<Measurement>
+<Version>0.1.6</Version>
+<Time>2019-04-05_1700</Time>
+<TimeUnix>30731217_30850768</TimeUnix>
+<DeviceUniqueID>5566105806972357</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Pro
+OS Version:                10.0.17763 N/A Build 17763
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     2/20/2019, 11:48:19 PM
+System Boot Time:          3/31/2019, 10:08:46 PM
+System Manufacturer:       Dell Inc.
+System Model:              Vostro 5568
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              Dell Inc. 1.3.0, 9/11/2017
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:2.0 -Level:0-Revision:1.16-VendorID:'NTC '-Firmware:65539.1
+  </TPM>
+  <FirmwareVersion>NTC  1.3.0.1</FirmwareVersion>
+</Version>
+<Error_PcpToolGetPCRs>
+PcpToolGetPCRs: (0x80090030) The device that is required by this cryptographic provider is not ready for use.
+</Error_PcpToolGetPCRs>
+<PlatformCounters>
+  <OsBootCount>136</OsBootCount>
+  <OsResumeCount>16</OsResumeCount>
+  <CurrentBootCount>233</CurrentBootCount>
+  <CurrentEventCount>4096</CurrentEventCount>
+  <CurrentCounterId>21037057</CurrentCounterId>
+  <InitialBootCount>233</InitialBootCount>
+  <InitialEventCount>4096</InitialEventCount>
+  <InitialCounterId>21037057</InitialCounterId>
+</PlatformCounters>
+<Error_PcpToolGetEK_SRK>
+PcpToolGetEK_SRK: (0x80090030) The device that is required by this cryptographic provider is not ready for use.
+</Error_PcpToolGetEK_SRK>
+</Measurement>

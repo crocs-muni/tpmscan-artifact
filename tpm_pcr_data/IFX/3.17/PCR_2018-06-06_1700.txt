@@ -1,0 +1,63 @@
+<Measurement>
+<Version>0.1.0</Version>
+<Time>2018-06-06_1700</Time>
+<TimeUnix>30670263_-833316144</TimeUnix>
+<DeviceUniqueID>7350867145263047</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Pro
+OS Version:                10.0.17134 N/A Build 17134
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     01.05.2018, 22:17:16
+System Boot Time:          05.06.2018, 17:43:04
+System Manufacturer:       FUJITSU
+System Model:              LIFEBOOK S792
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              FUJITSU // Phoenix Technologies Ltd. Version 2.08, 28.01.2013
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:01.02-SpecLevel:2-Errata:2-VendorID:'IFX '-Firmware:03.17
+  </TPM>
+  <FirmwareVersion>IFX  3.17</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">c7679d74452e9c989cfbe1fb555291acfbfc1b7e</PCR>
+  <PCR Index="01">d812af0df38b50f4322477d1047f67c9a4757eb6</PCR>
+  <PCR Index="02">cacaab75845278a988cab17b3a6d640152c09d8c</PCR>
+  <PCR Index="03">3a3f780f11a4b49969fcaa80cd6e3957c33b2275</PCR>
+  <PCR Index="04">c5d77cf2a92e8b29ba7e80b660127ea4dc4df509</PCR>
+  <PCR Index="05">86a85db8d66aab503894ed8932533485e1d04902</PCR>
+  <PCR Index="06">4adc69796769989eb7f6db94fc0f9657d7725044</PCR>
+  <PCR Index="07">3a3f780f11a4b49969fcaa80cd6e3957c33b2275</PCR>
+  <PCR Index="08">95012e6395b50a75ea6f88d763e78d3598486cab</PCR>
+  <PCR Index="09">0d536cb1da5850bd8b47f1924436275d01a27576</PCR>
+  <PCR Index="10">26b01bf63dd15643569b39d19ae7975ac1e4265d</PCR>
+  <PCR Index="11">ebb98df76613280f20dc38221143a9e727399486</PCR>
+  <PCR Index="12">9841d695a7f1b5c85d869bdf518a71cf367ca7d0</PCR>
+  <PCR Index="13">c9d219fe322ab8b16edddc5a3a2b80e3ae721d3c</PCR>
+  <PCR Index="14">5d88931be569847e8678774e7e9fadc7e304fec0</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>852</OsBootCount>
+  <OsResumeCount>0</OsResumeCount>
+  <CurrentBootCount>0</CurrentBootCount>
+  <CurrentEventCount>1808</CurrentEventCount>
+  <CurrentCounterId>184190450</CurrentCounterId>
+  <InitialBootCount>0</InitialBootCount>
+  <InitialEventCount>1808</InitialEventCount>
+  <InitialCounterId>184190450</InitialCounterId>
+</PlatformCounters>
+</Measurement>

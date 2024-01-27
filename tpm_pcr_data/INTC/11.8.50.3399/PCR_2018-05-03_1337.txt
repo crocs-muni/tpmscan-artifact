@@ -1,0 +1,53 @@
+<Measurement>
+<Version>0.1.5</Version>
+<Time>2018-05-03_1337</Time>
+<TimeUnix>30663395_-711017216</TimeUnix>
+<DeviceUniqueID>9385567987933574</DeviceUniqueID>
+<SystemInfo>
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:2.0 -Level:0-Revision:1.16-VendorID:'INTC'-Firmware:720904.3280199
+  </TPM>
+  <FirmwareVersion>INTC 11.8.50.3399</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">548ea8e35e61ae2145184ccd0373af032045f137</PCR>
+  <PCR Index="01">da07218f4f88349c2c86de43b86f0a310e0f443f</PCR>
+  <PCR Index="02">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="03">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="04">1a5bb3ef101b0a21d350845fc67c0946a5fe9450</PCR>
+  <PCR Index="05">8fc475862f24a3e66a73ea1394309e7f6380ba98</PCR>
+  <PCR Index="06">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="07">8a0b7f5d0bfba39aae0b9e459516dd00efaa92ce</PCR>
+  <PCR Index="08">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="09">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="10">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="11">ebb98df76613280f20dc38221143a9e727399486</PCR>
+  <PCR Index="12">ff38fbe984baa0078ebf25783a1c07fa2c625788</PCR>
+  <PCR Index="13">bb04210ff713ae0cf1f6a9356abe90115220098c</PCR>
+  <PCR Index="14">0eb28988fc75a44adc337a8534af3a3d9c202075</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>146</OsBootCount>
+  <OsResumeCount>0</OsResumeCount>
+  <CurrentBootCount>166</CurrentBootCount>
+  <CurrentEventCount>7168</CurrentEventCount>
+  <CurrentCounterId>21037057</CurrentCounterId>
+  <InitialBootCount>166</InitialBootCount>
+  <InitialEventCount>7168</InitialEventCount>
+  <InitialCounterId>21037057</InitialCounterId>
+</PlatformCounters>
+<RSK>d3b7</RSK>
+<EK>cdb4</EK>
+</Measurement>

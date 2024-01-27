@@ -1,0 +1,65 @@
+<Measurement>
+<Version>0.1.6</Version>
+<Time>2020-05-26_1700</Time>
+<TimeUnix>30815103_405528512</TimeUnix>
+<DeviceUniqueID>2194548429619503</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Enterprise
+OS Version:                10.0.18362 N/A Build 18362
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Member Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     08.09.2019, 18:18:39
+System Boot Time:          18.05.2020, 9:01:47
+System Manufacturer:       Dell Inc.
+System Model:              Latitude 5590
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              Dell Inc. 1.6.2, 27.11.2018
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:2.0 -Level:0-Revision:1.16-VendorID:'NTC '-Firmware:458754.1
+  </TPM>
+  <FirmwareVersion>NTC  7.2.0.1</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">53ed6ec8332ebfc3372c6a94d371d0a192fd6d75a00a12fee425dbc5727e4131</PCR>
+  <PCR Index="01">52787389d634adbc96d2f8be6488f0f9263edb8d4631c2930bc644e5118ecffd</PCR>
+  <PCR Index="02">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="03">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="04">63bcfdefda11dedd82686de2a044fd290d03c589300502c2bff59af69041a918</PCR>
+  <PCR Index="05">0d674caf8662330b456ac660f94b9939035eaa1b42cab6ee7f1106c22771b414</PCR>
+  <PCR Index="06">5471981d792a7350ce8bcecb41a09f2707e783793108b29240f9bc2eaf1952bc</PCR>
+  <PCR Index="07">cf5b9fd79ec6fa9e987d4c3cdef32e14c3f23e440074d05abe45ae24330856aa</PCR>
+  <PCR Index="08">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="09">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="10">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="11">0fe6e8f2110d5d53935c9e7d6f6bf722598b550595aabdc6e4fd2ecdf310f980</PCR>
+  <PCR Index="12">2fc159b2150b04d2da2e82cd09b82fe0debfac43b9f3c0843445dd9ce3bb21db</PCR>
+  <PCR Index="13">389931e496bfeb584032630a970a935c63f0d973bf19607d2d08dbfa8ed6fbee</PCR>
+  <PCR Index="14">944c3a62a013e93d2cd21a14ec3f8ca76cb85f395524ac6b259d4de66418b081</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>49</OsBootCount>
+  <OsResumeCount>8</OsResumeCount>
+  <CurrentBootCount>104</CurrentBootCount>
+  <CurrentEventCount>1024</CurrentEventCount>
+  <CurrentCounterId>21037057</CurrentCounterId>
+  <InitialBootCount>104</InitialBootCount>
+  <InitialEventCount>1024</InitialEventCount>
+  <InitialCounterId>21037057</InitialCounterId>
+</PlatformCounters>
+<RSK>baa8</RSK>
+<EK>cacc</EK>
+</Measurement>

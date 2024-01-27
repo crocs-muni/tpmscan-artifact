@@ -1,0 +1,63 @@
+<Measurement>
+<Version>0.1.0</Version>
+<Time>2018-05-06_1040</Time>
+<TimeUnix>30663974_-1679081600</TimeUnix>
+<DeviceUniqueID>6752001893569576</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Home
+OS Version:                10.0.16299 N/A Build 16299
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     20.11.2017, 11:12:00
+System Boot Time:          29.4.2018, 6:37:26
+System Manufacturer:       Acer
+System Model:              Aspire E5-575G
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              Insyde Corp. V1.20, 13.12.2016
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:2.0 -Level:0-Revision:1.16-VendorID:'INTC'-Firmware:720901.1058
+  </TPM>
+  <FirmwareVersion>INTC 5.1058</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">7a2cde9ce1a513df2ac35e784c2ecce902071e8d</PCR>
+  <PCR Index="01">c4cfba73f179f43d5ddf985492a71bf8bc865f10</PCR>
+  <PCR Index="02">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="03">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="04">1a5bb3ef101b0a21d350845fc67c0946a5fe9450</PCR>
+  <PCR Index="05">01df55450ba0984c687a4de32b4fc86c9777d8b6</PCR>
+  <PCR Index="06">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="07">2beeebcc3dce88442a191e942928407ae6b40b4c</PCR>
+  <PCR Index="08">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="09">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="10">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="11">ebb98df76613280f20dc38221143a9e727399486</PCR>
+  <PCR Index="12">f2d5696c8d6dc43635fea53a85b6421d085bdfda</PCR>
+  <PCR Index="13">2484385c460ed4802ddac6096091b5e4d3fc4ca0</PCR>
+  <PCR Index="14">fc76feaf714c844cc888ea454ddf97c0ed220b61</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>71</OsBootCount>
+  <OsResumeCount>5</OsResumeCount>
+  <CurrentBootCount>108</CurrentBootCount>
+  <CurrentEventCount>2048</CurrentEventCount>
+  <CurrentCounterId>21037057</CurrentCounterId>
+  <InitialBootCount>108</InitialBootCount>
+  <InitialEventCount>2048</InitialEventCount>
+  <InitialCounterId>21037057</InitialCounterId>
+</PlatformCounters>
+</Measurement>

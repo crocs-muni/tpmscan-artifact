@@ -1,0 +1,65 @@
+<Measurement>
+<Version>0.1.6</Version>
+<Time>2018-10-31_0924</Time>
+<TimeUnix>30699771_1967390784</TimeUnix>
+<DeviceUniqueID>7278774526118463</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Home
+OS Version:                10.0.17134 N/A Build 17134
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     3. 9. 2018, 12:34:10
+System Boot Time:          31. 10. 2018, 10:14:00
+System Manufacturer:       ASUSTeK COMPUTER INC.
+System Model:              GL552VW
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              American Megatrends Inc. GL552VW.213, 22. 10. 2015
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:2.0 -Level:0-Revision:1.16-VendorID:'INTC'-Firmware:720904.3280199
+  </TPM>
+  <FirmwareVersion>INTC 11.8.50.3399</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">39b4fb18d4d43b2b5272f76564c6d64aea85f788</PCR>
+  <PCR Index="01">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="02">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="03">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="04">c5f15bfc68ec67764eb21f1efc464062ad36cf90</PCR>
+  <PCR Index="05">6e35ae7a88b752362cea6fff2eb245e5efe655a6</PCR>
+  <PCR Index="06">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="07">06b27a8663bd1ff5e9c070c187d3cf439d97e95e</PCR>
+  <PCR Index="08">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="09">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="10">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="11">ebb98df76613280f20dc38221143a9e727399486</PCR>
+  <PCR Index="12">46223b48ef49bf7039eb84355d28b034c87b7efc</PCR>
+  <PCR Index="13">3b403f851b246ccb06f19ba2278a2ad554cb3887</PCR>
+  <PCR Index="14">4249f866a64429d7b81c08638896fec8e1df11e8</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>176</OsBootCount>
+  <OsResumeCount>0</OsResumeCount>
+  <CurrentBootCount>1996927510</CurrentBootCount>
+  <CurrentEventCount>102144</CurrentEventCount>
+  <CurrentCounterId>21037057</CurrentCounterId>
+  <InitialBootCount>1996927510</InitialBootCount>
+  <InitialEventCount>102144</InitialEventCount>
+  <InitialCounterId>21037057</InitialCounterId>
+</PlatformCounters>
+<RSK>ac87</RSK>
+<EK>dd92</EK>
+</Measurement>

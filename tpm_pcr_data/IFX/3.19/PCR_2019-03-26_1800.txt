@@ -1,0 +1,66 @@
+<Measurement>
+<Version>0.1.6</Version>
+<Time>2019-03-26_1800</Time>
+<TimeUnix>30729213_-1154735344</TimeUnix>
+<DeviceUniqueID>8124409958199490</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Pro
+OS Version:                10.0.17763 N/A Build 17763
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     08.02.2019, 12:43:25
+System Boot Time:          21.03.2019, 21:10:16
+System Manufacturer:       Hewlett-Packard
+System Model:              HP ProBook 6570b
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              Hewlett-Packard 68ICE Ver. F.73, 07.08.2018
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:01.02-SpecLevel:2-Errata:2-VendorID:'IFX '-Firmware:03.19
+  </TPM>
+  <FirmwareVersion>IFX  3.19</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">4f2ec28874023fe0e9fc74b977ce407ddd0cf839</PCR>
+  <PCR Index="01">ecfd90aa1e43e8425ad65ddc715f2e412aca1539</PCR>
+  <PCR Index="02">ecfd90aa1e43e8425ad65ddc715f2e412aca1539</PCR>
+  <PCR Index="03">ecfd90aa1e43e8425ad65ddc715f2e412aca1539</PCR>
+  <PCR Index="04">2e26d7af5c62e3945698c979b41e57cc8687784b</PCR>
+  <PCR Index="05">f2a5ead76c7aaaf88f1fcbf0a3da426d5edcd0e5</PCR>
+  <PCR Index="06">ecfd90aa1e43e8425ad65ddc715f2e412aca1539</PCR>
+  <PCR Index="07">ecfd90aa1e43e8425ad65ddc715f2e412aca1539</PCR>
+  <PCR Index="08">8f09fc3407af630c72fe590d05d6d9bbe6780b5d</PCR>
+  <PCR Index="09">0d536cb1da5850bd8b47f1924436275d01a27576</PCR>
+  <PCR Index="10">214d44425df6320899dd2224d4674cf2980e1c1b</PCR>
+  <PCR Index="11">ebb98df76613280f20dc38221143a9e727399486</PCR>
+  <PCR Index="12">91d69badf25256c4d32707ef166d8334a5e654fe</PCR>
+  <PCR Index="13">8f753296da50399918cb8fbe03149d4043ebb4f0</PCR>
+  <PCR Index="14">fc76feaf714c844cc888ea454ddf97c0ed220b61</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>240</OsBootCount>
+  <OsResumeCount>7</OsResumeCount>
+  <CurrentBootCount>0</CurrentBootCount>
+  <CurrentEventCount>1782</CurrentEventCount>
+  <CurrentCounterId>177436044</CurrentCounterId>
+  <InitialBootCount>0</InitialBootCount>
+  <InitialEventCount>1775</InitialEventCount>
+  <InitialCounterId>177436044</InitialCounterId>
+</PlatformCounters>
+<RSK>85a8</RSK>
+<Error_PcpToolGetEK_SRK>
+PcpToolGetEK_SRK: (0x80280400) P</Error_PcpToolGetEK_SRK>
+</Measurement>

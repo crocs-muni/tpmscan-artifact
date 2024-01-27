@@ -1,0 +1,58 @@
+<Measurement>
+<Version>0.1.5</Version>
+<Time>2018-05-03_1545</Time>
+<TimeUnix>30663413_-1267118544</TimeUnix>
+<DeviceUniqueID>3820687287134903</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Enterprise N 2016 LTSB
+OS Version:                10.0.14393 N/A Build 14393
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     9/5/2017, 12:15:30 AM
+System Boot Time:          5/3/2018, 2:01:31 PM
+System Manufacturer:       Dell Inc.
+System Model:              Inspiron 15-3567
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              Dell Inc. 01.07.00, 4/7/2017
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:2.0 -Level:0-Revision:1.16-VendorID:'INTC'-Firmware:720902.1121
+  </TPM>
+  <FirmwareVersion>INTC 6.1121</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">91a3af237a55bc8aacfdcaf4eba6afc87170acef</PCR>
+  <PCR Index="01">0fe0fdc0188fccb87b6aeb0e680749ce4e527f81</PCR>
+  <PCR Index="02">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="03">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="04">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="05">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="06">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="07">da2b1b92e70170f3a1e72390343c4045703da4a7</PCR>
+  <PCR Index="08">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="09">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="10">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="11">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="12">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="13">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="14">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000</PCR>
+</PCRs>
+<Error_PcpToolGetPlatformCounters>
+PcpToolGetPlatformCounters: (0x80070002) The system cannot find the file specified.
+</Error_PcpToolGetPlatformCounters>
+<RSK>c139</RSK>
+<EK>a756</EK>
+</Measurement>

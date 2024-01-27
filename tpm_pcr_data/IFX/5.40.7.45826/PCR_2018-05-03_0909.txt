@@ -1,0 +1,65 @@
+<Measurement>
+<Version>0.1.5</Version>
+<Time>2018-05-03_0909</Time>
+<TimeUnix>30663358_2007700032</TimeUnix>
+<DeviceUniqueID>6121631928161040</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Home
+OS Version:                10.0.16299 N/A Build 16299
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     19-01-2018, 01:41:04
+System Boot Time:          23-04-2018, 08:12:54
+System Manufacturer:       HP
+System Model:              HP Spectre x360 Convertible 13-ac0XX
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              American Megatrends Inc. F.31, 27-04-2017
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:2.0 -Level:0-Revision:1.16-VendorID:'IFX '-Firmware:327720.504578
+  </TPM>
+  <FirmwareVersion>IFX  5.40.7.45826</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">737052d54a59a8f96bbcef21e90dc5d201356a36ace4a931ac42538cad3d6f57</PCR>
+  <PCR Index="01">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="02">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="03">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="04">e3d188b3edd36e96bfc208c20aafaf7ec14fd692c382cca31b89ba2206f8a001</PCR>
+  <PCR Index="05">d6914fee9b8eac639ab0a6b1c595bb23a8b5ab6ecfc3b51a614553110497c136</PCR>
+  <PCR Index="06">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="07">174166a04b1df5713742eb1e2c7b22f1e79c55b6ea472240bdb89ddfe41f5764</PCR>
+  <PCR Index="08">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="09">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="10">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="11">0fe6e8f2110d5d53935c9e7d6f6bf722598b550595aabdc6e4fd2ecdf310f980</PCR>
+  <PCR Index="12">f7724a5960e0cfda715ecd79215511c6349c2f23ae4b001fcd1da01242c7b962</PCR>
+  <PCR Index="13">f7b7e0f5d03262be08458550c62b46caa1b3e153ebb92ebc25e0709f7ca310c1</PCR>
+  <PCR Index="14">944c3a62a013e93d2cd21a14ec3f8ca76cb85f395524ac6b259d4de66418b081</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>61</OsBootCount>
+  <OsResumeCount>12</OsResumeCount>
+  <CurrentBootCount>50</CurrentBootCount>
+  <CurrentEventCount>511</CurrentEventCount>
+  <CurrentCounterId>21037057</CurrentCounterId>
+  <InitialBootCount>50</InitialBootCount>
+  <InitialEventCount>511</InitialEventCount>
+  <InitialCounterId>21037057</InitialCounterId>
+</PlatformCounters>
+<RSK>d86b</RSK>
+<EK>bf7b</EK>
+</Measurement>
