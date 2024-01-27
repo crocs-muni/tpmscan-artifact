@@ -1,0 +1,65 @@
+<Measurement>
+<Version>0.1.6</Version>
+<Time>2018-12-19_1800</Time>
+<TimeUnix>30709700_-1458038496</TimeUnix>
+<DeviceUniqueID>8486261040391357</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Education
+OS Version:                10.0.17134 N/A Build 17134
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Member Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     9/11/2018, 2:01:12 PM
+System Boot Time:          12/19/2018, 4:02:03 AM
+System Manufacturer:       System manufacturer
+System Model:              System Product Name
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              American Megatrends Inc. 0802, 6/14/2018
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:2.0 -Level:0-Revision:1.16-VendorID:'IFX '-Firmware:327743.858368
+  </TPM>
+  <FirmwareVersion>IFX  5.63.13.6400</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">ba3e846f3b6e654eecb8fad309c5744d78728ac3cc3f4471841ae90e86930876</PCR>
+  <PCR Index="01">c7186b46501cbcc0b533457dad9e2eba38f96131f427b12a0546b2ebc01be652</PCR>
+  <PCR Index="02">ef9757bda98a5e9909ec77393c142571fc1c7a09a234ea5772f59857ed17ade9</PCR>
+  <PCR Index="03">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="04">65f1afc254b7b950c33a0250807b3286e332775bac90c6d1b311b687d6dc8ff4</PCR>
+  <PCR Index="05">43cb50983bf23040814880f995eefc21826bb00cd58e357656ab46022f9d5ca4</PCR>
+  <PCR Index="06">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="07">4ca13e81c7e4be25d0037ad315939424f88194d91a0dfe3ef274d7633e2b879f</PCR>
+  <PCR Index="08">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="09">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="10">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="11">0fe6e8f2110d5d53935c9e7d6f6bf722598b550595aabdc6e4fd2ecdf310f980</PCR>
+  <PCR Index="12">f5bfc71d147c7c9d939a62a4e90fab2f847653a180d4ff9d7b86763b39a78ba7</PCR>
+  <PCR Index="13">60f4f26adfd40e24eae6f213b34e8390c77ad1688c417fd1440bcb40f590bb92</PCR>
+  <PCR Index="14">b6242b4fec1ec51e3490e0aacf5816bf54cb8e8fde252de38341d1ea774cda88</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>114</OsBootCount>
+  <OsResumeCount>0</OsResumeCount>
+  <CurrentBootCount>150</CurrentBootCount>
+  <CurrentEventCount>512</CurrentEventCount>
+  <CurrentCounterId>21037057</CurrentCounterId>
+  <InitialBootCount>150</InitialBootCount>
+  <InitialEventCount>512</InitialEventCount>
+  <InitialCounterId>21037057</InitialCounterId>
+</PlatformCounters>
+<RSK>a344</RSK>
+<EK>9ec6</EK>
+</Measurement>

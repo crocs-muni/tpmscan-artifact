@@ -1,0 +1,67 @@
+<Measurement>
+<Version>0.1.6</Version>
+<Time>2018-11-03_1800</Time>
+<TimeUnix>30700447_169378688</TimeUnix>
+<DeviceUniqueID>4146855013562839</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Enterprise
+OS Version:                10.0.17134 N/A Build 17134
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Member Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     01.07.2018, 15:08:18
+System Boot Time:          01.11.2018, 15:26:47
+System Manufacturer:       LENOVO
+System Model:              30AGS0V200
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              LENOVO FBKTCYAUS, 21.03.2018
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:01.02-SpecLevel:2-Errata:3-VendorID:'STM '-Firmware:13.12
+  </TPM>
+  <FirmwareVersion>STM  13.12</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">4f7318f5632aaa893a517ec11544a704516ea3bc</PCR>
+  <PCR Index="01">eaf6b375cf7000129519ba3144254968060e82c6</PCR>
+  <PCR Index="02">22d4c63fee26eaeef7b90297a3ddb506f91455be</PCR>
+  <PCR Index="03">3a3f780f11a4b49969fcaa80cd6e3957c33b2275</PCR>
+  <PCR Index="04">fe0cb6917deb648a55094bb2489fb65096bb6062</PCR>
+  <PCR Index="05">87ec4a927ed29d09dbce02307163d4b7c3a18b54</PCR>
+  <PCR Index="06">3a3f780f11a4b49969fcaa80cd6e3957c33b2275</PCR>
+  <PCR Index="07">3a3f780f11a4b49969fcaa80cd6e3957c33b2275</PCR>
+  <PCR Index="08">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="09">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="10">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="11">ebb98df76613280f20dc38221143a9e727399486</PCR>
+  <PCR Index="12">0b4bc2a3681eda8738a560ee19a833323d3792ce</PCR>
+  <PCR Index="13">fb97a5e51e3a6ec7b1d8253db12e600b2420a3d0</PCR>
+  <PCR Index="14">41dd2fb4514a991a7db9f41f8959b5bccd04db14</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>34</OsBootCount>
+  <OsResumeCount>0</OsResumeCount>
+  <CurrentBootCount>0</CurrentBootCount>
+  <CurrentEventCount>251</CurrentEventCount>
+  <CurrentCounterId>66026664</CurrentCounterId>
+  <InitialBootCount>0</InitialBootCount>
+  <InitialEventCount>251</InitialEventCount>
+  <InitialCounterId>66026664</InitialCounterId>
+</PlatformCounters>
+<RSK>aa7d</RSK>
+<Error_PcpToolGetEK_SRK>
+PcpToolGetEK_SRK: (0x80090030) The device that is required by this cryptographic provider is not ready for use.
+</Error_PcpToolGetEK_SRK>
+</Measurement>

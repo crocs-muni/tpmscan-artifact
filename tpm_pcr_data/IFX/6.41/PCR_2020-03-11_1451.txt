@@ -1,0 +1,36 @@
+<Measurement>
+<Version>0.1.6</Version>
+<Time>2020-03-11_1451</Time>
+<TimeUnix>30799796_2077928384</TimeUnix>
+<DeviceUniqueID>0323218075800554</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Pro
+OS Version:                10.0.18362 N/A Build 18362
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     17.09.2019, 22:48:41
+System Boot Time:          29.02.2020, 18:04:18
+System Manufacturer:       HP
+System Model:              HP EliteBook 840 G3
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              HP N75 Ver. 01.16, 08.06.2017
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:01.02-SpecLevel:2-Errata:3-VendorID:'IFX '-Firmware:06.41
+  </TPM>
+  <FirmwareVersion>IFX  6.41</FirmwareVersion>
+</Version>
+<Error_PcpToolGetPCRs>
+PcpToolGetPCRs: (0x80090030) The device that is required by this cryptographic provider is not ready for use.
+</Error_PcpToolGetPCRs>
+<Error_PcpToolGetPlatformCounters>
+PcpToolGetPlatformCounters: (0x80070002) The system cannot find the file specified.
+</Error_PcpToolGetPlatformCounters>
+<Error_PcpToolGetEK_SRK>
+PcpToolGetEK_SRK: (0x80090030) The device that is required by this cryptographic provider is not ready for use.
+</Error_PcpToolGetEK_SRK>
+</Measurement>

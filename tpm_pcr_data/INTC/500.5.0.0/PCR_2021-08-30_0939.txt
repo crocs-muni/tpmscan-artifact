@@ -1,0 +1,65 @@
+<Measurement>
+<Version>0.1.8</Version>
+<Time>2021-08-30_0939</Time>
+<TimeUnix>30907778_-585165584</TimeUnix>
+<DeviceUniqueID>9010009165344949</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Home
+OS Version:                10.0.19042 N/A Build 19042
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     06.10.2020, 23:20:34
+System Boot Time:          19.08.2021, 11:47:50
+System Manufacturer:       LENOVO
+System Model:              82AA
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              LENOVO DHCN32WW, 27.05.2021
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:2.0 -Level:0-Revision:1.38-VendorID:'INTC'-Firmware:32768005.0
+  </TPM>
+  <FirmwareVersion>INTC 500.5.0.0</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">d5f423e4cf0d75ee915dc2bcae38ad21585ca99c8c79cb08b310b8320363ab7e</PCR>
+  <PCR Index="01">abc1df3dc3a2c2e4215586380123f88542f0f50d0275ddd27be2977ec083c0d9</PCR>
+  <PCR Index="02">048284836d1eb3bc00080c2cd207857ef2638eee7aa56d7469b6d245a9a64e24</PCR>
+  <PCR Index="03">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="04">ac83d266b618ef6572f6496829686ca0c526563571fd5e9591652c342be346f9</PCR>
+  <PCR Index="05">16803e5dc47576884a9de4cb186e44f5379f3b8e067d315ee3d054b2ce1ead2d</PCR>
+  <PCR Index="06">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="07">4287193d9a88cc10c56f72ebf055732ab7037191d0593b9fb5ef493d7dbcfa16</PCR>
+  <PCR Index="08">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="09">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="10">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="11">0fe6e8f2110d5d53935c9e7d6f6bf722598b550595aabdc6e4fd2ecdf310f980</PCR>
+  <PCR Index="12">5244cbed34da1090cc0db4491b72a4b4b375e648f904f7e97512dfdcd1de8283</PCR>
+  <PCR Index="13">66171aac492a4944ef9c27009765f784ccd5ed915f67494050afa4fcef36ef42</PCR>
+  <PCR Index="14">944c3a62a013e93d2cd21a14ec3f8ca76cb85f395524ac6b259d4de66418b081</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>146</OsBootCount>
+  <OsResumeCount>3</OsResumeCount>
+  <CurrentBootCount>3849616774</CurrentBootCount>
+  <CurrentEventCount>5376</CurrentEventCount>
+  <CurrentCounterId>21037057</CurrentCounterId>
+  <InitialBootCount>3849616774</InitialBootCount>
+  <InitialEventCount>5376</InitialEventCount>
+  <InitialCounterId>21037057</InitialCounterId>
+</PlatformCounters>
+<RSK>da9d</RSK>
+<EK>b816</EK>
+</Measurement>

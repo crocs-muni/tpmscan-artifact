@@ -1,0 +1,67 @@
+<Measurement>
+<Version>0.1.5</Version>
+<Time>2018-05-03_1338</Time>
+<TimeUnix>30663395_-189867216</TimeUnix>
+<DeviceUniqueID>9434585037834811</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Pro
+OS Version:                10.0.16299 N/A Build 16299
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     16-01-2018, 13:37:27
+System Boot Time:          29-04-2018, 06:50:05
+System Manufacturer:       Hewlett-Packard
+System Model:              HP ProBook 440 G2
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              Hewlett-Packard M73 Ver. 01.44, 13-07-2017
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:01.02-SpecLevel:2-Errata:3-VendorID:'IFX '-Firmware:04.40
+  </TPM>
+  <FirmwareVersion>IFX  4.40</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">32d4c551d12640751dd4eb42af05ddd7253673b4</PCR>
+  <PCR Index="01">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="02">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="03">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="04">1a5bb3ef101b0a21d350845fc67c0946a5fe9450</PCR>
+  <PCR Index="05">ef88999ec9582b2cd3cde6635ccc01eb68a8a384</PCR>
+  <PCR Index="06">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="07">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="08">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="09">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="10">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="11">ebb98df76613280f20dc38221143a9e727399486</PCR>
+  <PCR Index="12">4afa23d07349da22d2bc9f75cf4fa369473daff0</PCR>
+  <PCR Index="13">8b2d644be7c27f0a664258395465172148b3bec5</PCR>
+  <PCR Index="14">fc76feaf714c844cc888ea454ddf97c0ed220b61</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>197</OsBootCount>
+  <OsResumeCount>14</OsResumeCount>
+  <CurrentBootCount>0</CurrentBootCount>
+  <CurrentEventCount>1043</CurrentEventCount>
+  <CurrentCounterId>181727498</CurrentCounterId>
+  <InitialBootCount>0</InitialBootCount>
+  <InitialEventCount>1029</InitialEventCount>
+  <InitialCounterId>181727498</InitialCounterId>
+</PlatformCounters>
+<RSK>97ca</RSK>
+<Error_PcpToolGetEK_SRK>
+PcpToolGetEK_SRK: (0x80090030) The device that is required by this cryptographic provider is not ready for use.
+</Error_PcpToolGetEK_SRK>
+</Measurement>

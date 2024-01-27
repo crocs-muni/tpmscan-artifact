@@ -1,0 +1,33 @@
+<Measurement>
+<Version>0.1.0</Version>
+<Time>2018-04-25_1700</Time>
+<TimeUnix>30661814_-652622240</TimeUnix>
+<DeviceUniqueID>6601220328382983</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Pro
+OS Version:                10.0.16299 N/A Build 16299
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     01-Dec-17, 3:45:25
+System Boot Time:          25-Apr-18, 8:58:08
+System Manufacturer:       HP
+System Model:              HP ProBook 450 G3
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              HP N78 Ver. 01.12, 14-Jun-16
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:01.02-SpecLevel:2-Errata:3-VendorID:'IFX '-Firmware:06.43
+  </TPM>
+  <FirmwareVersion>IFX  6.43</FirmwareVersion>
+</Version>
+<Error_PcpToolGetPCRs>
+PcpToolGetPCRs: (0x80090030) The device that is required by this cryptographic provider is not ready for use.
+</Error_PcpToolGetPCRs>
+<Error_PcpToolGetPlatformCounters>
+PcpToolGetPlatformCounters: (0x80070002) The system cannot find the file specified.
+</Error_PcpToolGetPlatformCounters>
+</Measurement>

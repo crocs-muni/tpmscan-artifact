@@ -1,0 +1,65 @@
+<Measurement>
+<Version>0.1.6</Version>
+<Time>2020-04-11_1111</Time>
+<TimeUnix>30806001_-398550592</TimeUnix>
+<DeviceUniqueID>1825933599374569</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Pro
+OS Version:                10.0.18363 N/A Build 18363
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     9/1/2019, 6:32:28 AM
+System Boot Time:          4/11/2020, 1:07:54 PM
+System Manufacturer:       HP
+System Model:              HP EliteBook 850 G5
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              HP Q78 Ver. 01.00.05, 1/25/2018
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:2.0 -Level:0-Revision:1.16-VendorID:'IFX '-Firmware:458815.858368
+  </TPM>
+  <FirmwareVersion>IFX  7.63.13.6400</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">6a3aeb2bc8cd3659b87f9bbe23dfbdb74aadeb1b954bc867855c6e53f144100e</PCR>
+  <PCR Index="01">9b3179672d3bc5d7cd8dc8ef7c5fb11b60c035f55b85e3aaf9675b244016026b</PCR>
+  <PCR Index="02">300cb97daa3c95a8c4c1db5ea3bb4f521eef894e51fe491d4abcb3ee6af91129</PCR>
+  <PCR Index="03">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="04">63bcfdefda11dedd82686de2a044fd290d03c589300502c2bff59af69041a918</PCR>
+  <PCR Index="05">bbb7677e5b048d943e1f62f404327b1276864ada490d0247eb82c3091290b338</PCR>
+  <PCR Index="06">b8c606e676e844275c1e9df89d4aee0e3765ded52e47e6d5b8660aa73a5d183c</PCR>
+  <PCR Index="07">e5a0313424d68e879f9840db95251e75ef1e16ba2eaed663752558af472451f5</PCR>
+  <PCR Index="08">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="09">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="10">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="11">0fe6e8f2110d5d53935c9e7d6f6bf722598b550595aabdc6e4fd2ecdf310f980</PCR>
+  <PCR Index="12">26cbb73cb2501d47b0f5376ba3efb7cb23231c5fc786ffa69f6a685174d7a74b</PCR>
+  <PCR Index="13">cd54bb700b3c148298c0adf95e12c490395b453fe866bc729f8d0412d50ed2dd</PCR>
+  <PCR Index="14">dcc0282c23ced37188c34e6b417816760778d4f12cbfd4fef7ef24835f56a15c</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>586</OsBootCount>
+  <OsResumeCount>0</OsResumeCount>
+  <CurrentBootCount>601</CurrentBootCount>
+  <CurrentEventCount>7424</CurrentEventCount>
+  <CurrentCounterId>21037057</CurrentCounterId>
+  <InitialBootCount>601</InitialBootCount>
+  <InitialEventCount>7424</InitialEventCount>
+  <InitialCounterId>21037057</InitialCounterId>
+</PlatformCounters>
+<RSK>dbb5</RSK>
+<EK>d691</EK>
+</Measurement>

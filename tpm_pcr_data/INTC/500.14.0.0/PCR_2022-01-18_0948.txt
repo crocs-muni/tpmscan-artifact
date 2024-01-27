@@ -1,0 +1,65 @@
+<Measurement>
+<Version>0.1.8</Version>
+<Time>2022-01-18_0948</Time>
+<TimeUnix>30936144_-2013263920</TimeUnix>
+<DeviceUniqueID>1410259899246918</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Pro
+OS Version:                10.0.19043 N/A Build 19043
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     30. 9. 2020, 19:08:06
+System Boot Time:          14. 1. 2022, 23:14:35
+System Manufacturer:       HP
+System Model:              HP ENVY Laptop 15-ep0xxx
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              AMI F.07, 30. 7. 2021
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:2.0 -Level:0-Revision:1.38-VendorID:'INTC'-Firmware:32768014.0
+  </TPM>
+  <FirmwareVersion>INTC 500.14.0.0</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">eafa5dd87aa61c468dc13b746b796c5c3fe99296a65e8af394a0c060897ccfc4</PCR>
+  <PCR Index="01">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="02">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="03">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="04">426de4715ddfd67b4c1fc692a1c8f3c5156dd94a046214e56337a59586d2ea86</PCR>
+  <PCR Index="05">f684b59a81b628b396cdbade7c7c12b97512c76957a0636c2ac39b3cdf902162</PCR>
+  <PCR Index="06">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="07">c6a38e7f630f239c6749ea34a4563a2acb56ef328977d9dd09cd86778b056480</PCR>
+  <PCR Index="08">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="09">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="10">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="11">0fe6e8f2110d5d53935c9e7d6f6bf722598b550595aabdc6e4fd2ecdf310f980</PCR>
+  <PCR Index="12">1c39b30c510333380c8895d3235f6077b9a31674565d15f08c5fcb96b0874b7e</PCR>
+  <PCR Index="13">a8f492e7d29360cb3dbc8e129a3c44060f803dbe74c1d13402f4f30c8621905e</PCR>
+  <PCR Index="14">944c3a62a013e93d2cd21a14ec3f8ca76cb85f395524ac6b259d4de66418b081</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>594</OsBootCount>
+  <OsResumeCount>11</OsResumeCount>
+  <CurrentBootCount>291</CurrentBootCount>
+  <CurrentEventCount>14848</CurrentEventCount>
+  <CurrentCounterId>21037057</CurrentCounterId>
+  <InitialBootCount>291</InitialBootCount>
+  <InitialEventCount>14848</InitialEventCount>
+  <InitialCounterId>21037057</InitialCounterId>
+</PlatformCounters>
+<RSK>add6</RSK>
+<EK>bcf6</EK>
+</Measurement>

@@ -1,0 +1,65 @@
+<Measurement>
+<Version>0.1.6</Version>
+<Time>2019-03-26_1402</Time>
+<TimeUnix>30729180_-1695404576</TimeUnix>
+<DeviceUniqueID>0789208417970585</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Home
+OS Version:                10.0.17134 N/A Build 17134
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     21.09.2018, 17:27:47
+System Boot Time:          26.03.2019, 14:59:17
+System Manufacturer:       Dell Inc.
+System Model:              Inspiron 15 7000 Gaming
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              Dell Inc. 1.8.1, 15.08.2018
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:2.0 -Level:0-Revision:1.16-VendorID:'INTC'-Firmware:19791884.0
+  </TPM>
+  <FirmwareVersion>INTC 46.12.0.0</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">8bf226d29de735af15e0a4f568b2bf88a47a9384</PCR>
+  <PCR Index="01">fc8141a669b128ef8fd3d0c45cd43d6a38031d2a</PCR>
+  <PCR Index="02">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="03">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="04">eb9be0cd014c34e087d5fa1817a4a85330b75455</PCR>
+  <PCR Index="05">5c76189af94aaf5eca677e712e2eb5e90a0ae0bb</PCR>
+  <PCR Index="06">b2a83b0ebf2f8374299a5b2bdfc31ea955ad7236</PCR>
+  <PCR Index="07">566cb177580a0086a3db41de5efe772a6c8e33e7</PCR>
+  <PCR Index="08">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="09">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="10">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="11">ebb98df76613280f20dc38221143a9e727399486</PCR>
+  <PCR Index="12">6e0452857e6939cbc3f6db8b5a7451ab2034f0f4</PCR>
+  <PCR Index="13">97e2b4ebc8d3d3922d00d66d90a9ef81a1120099</PCR>
+  <PCR Index="14">7e366811b1c5ffac3fb91d06bd112448ddadac9f</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>67</OsBootCount>
+  <OsResumeCount>0</OsResumeCount>
+  <CurrentBootCount>185</CurrentBootCount>
+  <CurrentEventCount>11520</CurrentEventCount>
+  <CurrentCounterId>21037057</CurrentCounterId>
+  <InitialBootCount>185</InitialBootCount>
+  <InitialEventCount>11520</InitialEventCount>
+  <InitialCounterId>21037057</InitialCounterId>
+</PlatformCounters>
+<RSK>9482</RSK>
+<EK>e089</EK>
+</Measurement>

@@ -1,0 +1,65 @@
+<Measurement>
+<Version>0.1.6</Version>
+<Time>2020-03-11_1542</Time>
+<TimeUnix>30799803_-1567389984</TimeUnix>
+<DeviceUniqueID>9319249047057461</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Home
+OS Version:                10.0.18363 N/A Build 18363
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     2/20/2020, 3:28:13 PM
+System Boot Time:          3/11/2020, 1:20:09 AM
+System Manufacturer:       Acer
+System Model:              Swift SF314-55
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              American Megatrends Inc. V1.03, 8/20/2018
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:2.0 -Level:0-Revision:1.38-VendorID:'INTC'-Firmware:26345473.0
+  </TPM>
+  <FirmwareVersion>INTC 402.1.0.0</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">a061657cf5e13ab193313b841ed0f2c3a0c357679dcf66bb525e61e3c8301b6d</PCR>
+  <PCR Index="01">868aceb7a1432adf0f5967f441e990a062245187e75aa2c6e79d93092a3769c1</PCR>
+  <PCR Index="02">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="03">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="04">7c4bf6238da37254a40b8228dee189453a613b13d0e1ca0a43408c3295be16f9</PCR>
+  <PCR Index="05">8e16de2f18289a08a42f7443571f54b093c007ded65ad4555cd06a88856b0c60</PCR>
+  <PCR Index="06">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="07">277da7a1a22cc721f3a2e782a920314423c66a11c96352716ac00d79eacbc3a1</PCR>
+  <PCR Index="08">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="09">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="10">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="11">0fe6e8f2110d5d53935c9e7d6f6bf722598b550595aabdc6e4fd2ecdf310f980</PCR>
+  <PCR Index="12">ccc9ce3e0a3689c6018384872eaed505b1d6ddc414db1c8f0e8b58f7ecd3ff5a</PCR>
+  <PCR Index="13">0c4d45720642aa5984dccf1a2f7bfb4b55ea3b96d8829db528e588d09bfe2092</PCR>
+  <PCR Index="14">944c3a62a013e93d2cd21a14ec3f8ca76cb85f395524ac6b259d4de66418b081</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>114</OsBootCount>
+  <OsResumeCount>1</OsResumeCount>
+  <CurrentBootCount>116</CurrentBootCount>
+  <CurrentEventCount>5888</CurrentEventCount>
+  <CurrentCounterId>21037057</CurrentCounterId>
+  <InitialBootCount>116</InitialBootCount>
+  <InitialEventCount>5888</InitialEventCount>
+  <InitialCounterId>21037057</InitialCounterId>
+</PlatformCounters>
+<RSK>c96e</RSK>
+<EK>bd9a</EK>
+</Measurement>

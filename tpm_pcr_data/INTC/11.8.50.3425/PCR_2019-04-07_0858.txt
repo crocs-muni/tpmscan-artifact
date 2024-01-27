@@ -1,0 +1,65 @@
+<Measurement>
+<Version>0.1.6</Version>
+<Time>2019-04-07_0858</Time>
+<TimeUnix>30731552_296406608</TimeUnix>
+<DeviceUniqueID>5011598201098677</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 10 Home
+OS Version:                10.0.17763 N/A Build 17763
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     21. 12. 2018, 14:05:28
+System Boot Time:          6. 4. 2019, 12:42:14
+System Manufacturer:       ASUSTeK COMPUTER INC.
+System Model:              VivoBook S15 X510UF
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              American Megatrends Inc. X510UF.202, 21. 12. 2017
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:2.0 -Level:0-Revision:1.16-VendorID:'INTC'-Firmware:720904.3280225
+  </TPM>
+  <FirmwareVersion>INTC 11.8.50.3425</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">27446e8a76213dd77eeecc7485e275c706aee4c2145bfdd14584acb01678ed6a</PCR>
+  <PCR Index="01">beee844da1fa57704eec2ace46f6718055d8f02853b2b8036a0be3213715f8f6</PCR>
+  <PCR Index="02">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="03">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="04">e415592906f36fe94b11ca5faae841e0d467b85529f841030b5cf4f7e0ff279e</PCR>
+  <PCR Index="05">60f030cd6ae5f0bbca728cb439dcfb70abf82f04ef651c5ed8a096876684e10f</PCR>
+  <PCR Index="06">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="07">88a21c7d05607aaacc3b6b1ba299e0bec44b9947361d3cf2e45a022344a3ec3f</PCR>
+  <PCR Index="08">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="09">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="10">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="11">0fe6e8f2110d5d53935c9e7d6f6bf722598b550595aabdc6e4fd2ecdf310f980</PCR>
+  <PCR Index="12">ae6f6a33e6b6455538a4b0be834dc1775e71aae33ea49593f652a2d5b50abcf9</PCR>
+  <PCR Index="13">4eb76d20767b420cee8b7353643e6b4d9fc2e58a6e3369af185083a205d9c32c</PCR>
+  <PCR Index="14">9c75da2aecf2c39935b8a8208593e4c37ce7e977516942f2d6656c3cbade602b</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>103</OsBootCount>
+  <OsResumeCount>0</OsResumeCount>
+  <CurrentBootCount>2859133552</CurrentBootCount>
+  <CurrentEventCount>1024</CurrentEventCount>
+  <CurrentCounterId>21037057</CurrentCounterId>
+  <InitialBootCount>2859133552</InitialBootCount>
+  <InitialEventCount>1024</InitialEventCount>
+  <InitialCounterId>21037057</InitialCounterId>
+</PlatformCounters>
+<RSK>e238</RSK>
+<EK>ac07</EK>
+</Measurement>

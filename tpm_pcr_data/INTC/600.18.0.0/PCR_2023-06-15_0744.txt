@@ -1,0 +1,65 @@
+<Measurement>
+<Version>0.1.8</Version>
+<Time>2023-06-15_0744</Time>
+<TimeUnix>31039325_680754800</TimeUnix>
+<DeviceUniqueID>6399387533146545</DeviceUniqueID>
+<SystemInfo>
+OS Name:                   Microsoft Windows 11 Pro
+OS Version:                10.0.22621 N/A Build 22621
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Original Install Date:     14/04/2023, 11:50:53
+System Boot Time:          15/06/2023, 08:22:46
+System Manufacturer:       ASUSTeK COMPUTER INC.
+System Model:              ASUS TUF Dash F15 FX517ZC_FX517ZC
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+BIOS Version:              American Megatrends International, LLC. FX517ZC.315, 17/06/2022
+</SystemInfo>
+<Version>
+  <Provider>v01.00</Provider>
+  <TPM>
+    TPM-Version:2.0 -Level:0-Revision:1.38-VendorID:'INTC'-Firmware:39321618.0
+  </TPM>
+  <FirmwareVersion>INTC 600.18.0.0</FirmwareVersion>
+</Version>
+<PCRs>
+  <PCR Index="00">305625519c423da2bf6f44f7d1772f34a53be3dd63a868975fd4c9b926a2fae5</PCR>
+  <PCR Index="01">9540f2a2f2224ffc76f9187934d4a8d8df86c74812ee631ce703bfdf6e9005b4</PCR>
+  <PCR Index="02">b14b3710cc5d10167628092ac25ac9e8f72e9a2de896e2ebe51134f5730b4986</PCR>
+  <PCR Index="03">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="04">de479a98c910c5e205b2c09fc0ee9881e274a048a9563002f58e542f26ac8a9b</PCR>
+  <PCR Index="05">76e262ccc9bbc3e8b02fa6b0b07902d3f46bf578141589548194773305745ae7</PCR>
+  <PCR Index="06">3d458cfe55cc03ea1f443f1562beec8df51c75e14a9fcf9a7234a13f198e7969</PCR>
+  <PCR Index="07">86d6a6f4c1c67b3df9c9ae82306006fd569500972830c196c185d0388a960a31</PCR>
+  <PCR Index="08">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="09">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="10">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="11">0fe6e8f2110d5d53935c9e7d6f6bf722598b550595aabdc6e4fd2ecdf310f980</PCR>
+  <PCR Index="12">3f76e59e4a41f1b8e58695cef8fe7e38c019bf2eac659f4052716e74de386b92</PCR>
+  <PCR Index="13">3bfabf16646e0cf1730e7b51b9c8a40c59eaf5228dcaafabf041c63f7b3fa2b7</PCR>
+  <PCR Index="14">dcc0282c23ced37188c34e6b417816760778d4f12cbfd4fef7ef24835f56a15c</PCR>
+  <PCR Index="15">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="16">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+  <PCR Index="17">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="18">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="19">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="20">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="21">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="22">ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</PCR>
+  <PCR Index="23">0000000000000000000000000000000000000000000000000000000000000000</PCR>
+</PCRs>
+<PlatformCounters>
+  <OsBootCount>54</OsBootCount>
+  <OsResumeCount>0</OsResumeCount>
+  <CurrentBootCount>92</CurrentBootCount>
+  <CurrentEventCount>1536</CurrentEventCount>
+  <CurrentCounterId>21037057</CurrentCounterId>
+  <InitialBootCount>92</InitialBootCount>
+  <InitialEventCount>1536</InitialEventCount>
+  <InitialCounterId>21037057</InitialCounterId>
+</PlatformCounters>
+<RSK>b67a</RSK>
+<EK>a91d</EK>
+</Measurement>
