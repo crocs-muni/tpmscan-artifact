@@ -4,3 +4,5 @@ nonces/
 nonces_plots/
 *.pickle
 *.pdf
+*.json
+*.txt
