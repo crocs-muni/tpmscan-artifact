@@ -1,0 +1,10 @@
+# Ignore temporary or compiled files
+*.pyc
+*.swp
+
+# Ignore cache files (but not the directory itself)
+/cache/**
+
+# Ignore directories looking like results or test data
+/data*/
+/result*/

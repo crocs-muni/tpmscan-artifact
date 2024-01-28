@@ -1,0 +1,746 @@
+#!/bin/env python3
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import logging as log
+import matplotlib
+import matplotlib.dates as mdates
+import matplotlib.patches as pla
+import matplotlib.pyplot as plt
+import os
+
+from contextlib import contextmanager
+from contextlib import ExitStack
+from typing import Any
+from typing import Callable
+from typing import cast
+from typing import Generator as RawGenerator
+from typing import Generic
+from typing import NamedTuple
+from typing import Optional
+from typing import Tuple
+from typing import TypeAlias
+from typing import TypeVar
+
+from data import AggregatorLens
+from data import AlgorithmName
+from data import FileAdapterFactory
+from data import FileName
+from data import HostName
+from data import Measurement
+from data import MeasurementWorkshop
+from data import TimeStamp
+
+from driver.db import Database
+from driver.db import DBMeasurement
+from driver.db import DBMeasurementFactory
+from driver.zip import ZipMeasurementFactory
+
+T = TypeVar('T')
+ContextManager: TypeAlias = RawGenerator[T, None, None]
+Aggregator: TypeAlias = Callable[[list[float]], float]
+Generator: TypeAlias = RawGenerator[T, None, None]
+
+
+FILE_EXT = 'pdf'
+
+
+class RawDataPoint(NamedTuple, Generic[T]):
+    host: HostName
+    algorithm: AlgorithmName
+    stamp: TimeStamp
+    value: T
+
+
+class Resources(NamedTuple):
+    factory: MeasurementWorkshop
+    args: argparse.Namespace
+
+
+# Data filters
+# ============
+
+# Repository -> [Measurement]
+def get_measurements(rs: Resources) -> Generator[Measurement]:
+    if not rs.args.sources:
+        log.warning("No sources specified")
+
+    return rs.factory.create_all(rs.args.sources)
+
+
+# Repository -> [Hostname]
+def get_devices(rs: Resources) -> Generator[str]:
+    if not rs.args.sources:
+        log.warning("No sources specified")
+
+    seen = set()
+    for measurement in rs.factory.create_all(rs.args.sources):
+        with measurement.open() as detail:
+            if detail.host_name in seen:
+                continue
+            seen.add(detail.host_name)
+            yield detail.host_name
+
+
+# Repository -> (Hostname -> [Source])
+def get_hosts(rs: Resources) -> dict[HostName, list[tuple[FileName, Optional[Measurement.TPMData]]]]:
+    names: dict[HostName, list[tuple[FileName, Optional[Measurement.TPMData]]]] = {}
+
+    for m in get_measurements(rs):
+        with m.open() as detail:
+            host_name = detail.host_name
+            names.setdefault(host_name, []).append((detail.source, detail.tpm_data()))
+
+    return names
+
+
+# Repository -> (Algorithm -> Hostname -> Count)
+def get_algorithms(rs: Resources) -> dict[AlgorithmName, dict[HostName, int]]:
+    algs: dict[AlgorithmName, dict[HostName, int]] = {}
+    for measurement in get_measurements(rs):
+        with measurement.open() as detail:
+            add_algorithms(algs, detail.list_perf(), detail.host_name)
+
+    return algs
+
+
+# Repository -> [(Source, Timestamp)]
+def get_dates(rs: Resources) -> Generator[tuple[FileName, TimeStamp]]:
+    for measurement in get_measurements(rs):
+        with measurement.open() as detail:
+            yield (detail.source, detail.stamp)
+
+
+# Basic commands
+# ==============
+
+def list_hosts(rs: Resources) -> None:
+    hosts = get_hosts(rs)
+
+    for host in sorted(hosts.keys()):
+        print(f'{host:20} {len(hosts[host]):5}')
+
+        if rs.args.tpm:
+            for fn, tpm_data in hosts[host]:
+                if tpm_data is None:
+                    print(f'    {fn}: No TPM data')
+                else:
+                    print(f'    {fn}: {tpm_data.platform}; {tpm_data.vendor}, '
+                          '[{tpm_data.vendor_string}], {tpm_data.firmware_str()}')
+
+
+def add_algorithms(algs: dict[AlgorithmName, dict[HostName, int]],
+                   algorithms: set[AlgorithmName], host: HostName) -> None:
+    for alg in algorithms:
+        stats = algs.setdefault(alg, {})
+        stats[host] = stats.get(host, 0) + 1
+
+
+def list_algorithms(rs: Resources) -> None:
+    algs = get_algorithms(rs)
+
+    filler = "." if rs.args.verbose else ""
+
+    for alg in sorted(algs.keys()):
+        print(f'{alg :{filler}<50}{len(algs[alg].keys()):{filler}>6}')
+
+        if rs.args.verbose:
+            for host in sorted(algs[alg].keys()):
+                print(f'    {host:40}{algs[alg][host]:6}')
+
+
+def list_dates(rs: Resources) -> None:
+    for (fn, date) in get_dates(rs):
+        print(f"{fn:46} {date.strftime('%Y-%m-%d %H:%M:%S')}")
+
+
+def aggregate(rs: Resources) -> None:
+    lens: AggregatorLens[float] = AggregatorLens(rs.args.aggregator)
+
+    for measurement in get_measurements(rs):
+        with measurement.open() as detail:
+            value = lens.eval(detail.get_aggregator(rs.args.algorithm))
+            print(f"{measurement.source}: {rs.args.algorithm}: {value}")
+
+
+# Database upload
+# ===============
+
+def db_read(rs: Resources) -> None:
+    db = Database(rs.args.database)
+
+    with db.connect() as handle:
+        for measurement in get_measurements(rs):
+            if isinstance(measurement, DBMeasurement):
+                log.warning(f"{measurement.source}: Resides in DB, skipping")
+                continue
+
+            if handle.exists(measurement):
+                log.info(f"{measurement.source}: Present in database, skipping")
+                continue
+
+            with measurement.open() as detail:
+                log.info(f"DB: Reading {measurement.source}")
+                handle.insert(detail)
+                log.debug("DB: Committing")
+                handle.commit()
+                log.debug("DB: Committed")
+
+
+# Graphs
+# ======
+
+def select_data(rs: Resources, algs: list[AlgorithmName],
+                lens: AggregatorLens[T]) -> Generator[RawDataPoint[T]]:
+    for measurement in get_measurements(rs):
+        log.info(f'Processing {measurement.source}')
+        with measurement.open() as detail:
+            for alg in algs:
+                value = lens.eval(detail.get_aggregator(alg))
+
+                if value is None:
+                    continue
+
+                yield RawDataPoint(detail.host_name, alg, detail.stamp, value)
+
+
+@contextmanager
+def create_subplots(**kwargs: Any) -> ContextManager[tuple[plt.Figure, Any]]:
+    # The library sometimes complains about too many open figures, so we will
+    # provide a context manager to take care of resources.
+    fig, axs = plt.subplots(**kwargs)
+    yield (fig, axs)
+    plt.close(fig)
+
+
+__colour_map: dict[int, str] = {}
+
+
+def _get_marker(h: int) -> Tuple[str, str]:
+    markers = [
+        'o', 'v', '^', '<', '>', '1', '2', '3', '4', 's', 'p', 'P', '*', 'h',
+        '+', 'X', 'd'
+    ]
+
+    marker = markers[h % len(markers)]
+    part = (h >> 8)
+
+    if part not in __colour_map:
+        n = len(__colour_map) + 1
+        __colour_map[part] = f"C{n}"
+
+    return marker, __colour_map[part]
+
+
+def _get_label(mode: str, host: HostName) -> Optional[str]:
+    def _hash(s: str) -> str:
+        return hashlib.sha1(s.encode('utf-8'), usedforsecurity=False).hexdigest()[0:8]
+
+    match mode:
+        case 'shorthost':
+            if len(host) <= 10:
+                return host
+            return _hash(host)
+
+        case 'hash':
+            return _hash(host)
+
+        case 'none':
+            return None
+
+        case _:
+            return host
+
+
+Labeler: TypeAlias = Callable[[str], Optional[str]]
+
+
+def id_labeler(n: str) -> str:
+    # This was used to relabel IDs, not needed anymore.
+    return n
+
+
+def _get_labeler(rs: Resources) -> Labeler:
+    return lambda name: _get_label(rs.args.label, name)
+
+
+def _get_host_marker(host: str) -> dict[str, str]:
+    h = int(hashlib.sha1(host.encode('utf-8')).hexdigest(), 16)
+    (char, colour) = _get_marker(h)
+
+    # Override colours for specific vendors to make graphs consistent with
+    # other figures in the paper
+    match host:
+        case 'IFX':
+            colour = '#D81B60'
+        case 'INTC':
+            colour = '#58C60B'
+        case 'MSFT':
+            colour = '#04AB8F'
+        case 'NTC':
+            colour = '#FFC107'
+        case 'STM':
+            colour = '#1E88E5'
+
+    return {'marker': char, 'color': colour}
+
+
+def _relabel_vendor(vendor: str) -> str:
+    # This was used to set nicer labels to vendors (e.g. “Infineon”
+    # instead of “IFX”; not needed anymore.
+    return vendor
+
+
+def matplotlib_setup() -> None:
+    matplotlib.rcParams.update({
+        'axes.axisbelow': True,
+        'text.usetex': True,
+        'font.family': 'serif',
+        'pdf.fonttype': 42,
+        'ps.fonttype': 42,
+    })
+
+    matplotlib.rcParams["text.latex.preamble"] = '\n'.join([
+        r'\DeclareUnicodeCharacter{03C3}{\ensuremath{\sigma}}',
+        '',
+    ])
+
+
+def graph_config(graph: matplotlib.axes.Axes, fig: plt.Figure, name: AlgorithmName,
+                 options: argspace.Namespace) -> None:
+    if options.scale_x == 'log':
+        graph.set_xscale('log')  # type: ignore
+    if options.scale_y == 'log':
+        graph.set_yscale('log')  # type: ignore
+
+    if options.title is not None:
+        plt.title(options.title, y=-0.40)
+
+    if options.ticks_x is not None and len(options.ticks_x) > 0:
+        ticks = [value for raw in options.ticks_x for value in raw.split(',')]
+        graph.set_xticks([float(x) for x in ticks], ticks)  # type: ignore
+
+
+def _plot_graph_perf(datapoints: dict[HostName, dict[TimeStamp, float]],
+                     name: AlgorithmName, graph_name: FileName,
+                     options: argparse.Namespace) -> None:
+    with create_subplots(figsize=(18, 5)) as (fig, axs):
+        graph = axs
+
+        # Workaround for broken typing
+        assert isinstance(graph, matplotlib.axes.Axes)
+
+        # Figure title
+        fig.suptitle(name)
+
+        for host, data in datapoints.items():
+            x, y = [], []
+            for date, value in sorted(data.items(), key=lambda tp: tp[0]):
+                x.append(date)
+                y.append(value)
+
+            graph.plot(x, y, label=host, lw=0.5, **_get_host_marker(host))  # type: ignore
+
+        # Labels
+        graph.set_xlabel('Date')
+        graph.set_ylabel(f'Duration ({options.aggregator}) [s]')
+        graph.xaxis.set_major_locator(mdates.WeekdayLocator(byweekday=0))  # type: ignore
+
+        for label in graph.get_xticklabels(which='major'):  # type: ignore
+            label.set(rotation=30, horizontalalignment='right')
+
+        graph.grid(True)
+        graph_config(graph, fig, name, options)
+
+        fig.tight_layout()
+        fig.savefig(graph_name)
+
+
+def _make_graph_perf(rs: Resources, algs: list[AlgorithmName],
+                     lens: AggregatorLens[float]) -> None:
+    os.makedirs(rs.args.output_path, exist_ok=True)
+
+    log.info("[Perf] Collecting data")
+    datapoints: dict[AlgorithmName, dict[HostName, dict[TimeStamp, float]]] = {}
+    for point in select_data(rs, algs, lens):
+        alg_data = datapoints.setdefault(point.algorithm, {})
+        alg_data.setdefault(point.host, {})[point.stamp] = point.value
+
+    for algorithm, data in sorted(datapoints.items(), key=lambda x: x[0]):
+        log.info(f"[Perf] {algorithm}: Generating graph")
+        file_name = algorithm.replace(':', '_') + '.' + FILE_EXT
+        graph_path = os.path.join(rs.args.output_path, file_name)
+
+        log.info(f"[Perf] {algorithm}: {file_name}")
+        _plot_graph_perf(data, algorithm, graph_path, rs.args)
+
+
+def make_graph_perf(rs: Resources) -> None:
+    matplotlib_setup()
+    lens: AggregatorLens[float] = AggregatorLens(rs.args.aggregator)
+
+    algorithms = \
+        get_algorithms(rs).keys() \
+        if len(rs.args.algorithm) == 1 and rs.args.algorithm[0] == 'all' \
+        else rs.args.algorithm
+
+    _make_graph_perf(rs, algorithms, lens)
+
+
+# Scatter graph for ⟦x axis ~ Q₂⟧ (median), ⟦y axis ~ σ⟧ (std. deviation).
+def _plot_graph_var(datapoints: dict[HostName, Tuple[str, float, float, int]],
+                    name: AlgorithmName, graph_name: FileName,
+                    options: argparse.Namespace, labeler: Labeler = id_labeler) -> None:
+    max_s = max([s for _, a, b, s in datapoints.values()])
+
+    with create_subplots(figsize=(5, 3)) as (fig, axs):
+        graph = axs
+
+        # Workaround for broken typing
+        assert isinstance(graph, matplotlib.axes.Axes)
+
+        handles = []
+        labels: list[str] = []
+        vendors: set[str] = set()
+
+        # fig.suptitle(name)
+
+        for host, (vendor, x, y, s) in datapoints.items():
+            marker: dict[str, str] = {}
+
+            if options.vendors:
+                marker = _get_host_marker(vendor)
+
+                if vendor not in vendors:
+                    handles.append(pla.Rectangle((0, 0), 1, 1, color=marker['color']))
+                    labels.append(_relabel_vendor(vendor))
+                    vendors.add(vendor)
+            else:
+                marker = _get_host_marker(host)
+
+            graph.scatter(x, y, s=20 + (30 * s) / max_s, **marker)  # type: ignore
+
+            if (label := labeler(host)) is not None:
+                graph.text(x, y, label, fontsize=3)  # type: ignore
+
+        graph.set_xlabel('Median (t) [s]')
+        graph.set_ylabel('Standard deviation (σ) [s]')
+
+        if labels != [] and options.legend:
+            graph.legend(handles, labels)
+
+        graph.grid(True)
+
+        # Configure graphs from options
+        graph_config(graph, fig, name, options)
+
+        fig.tight_layout()
+        fig.savefig(graph_name)
+
+
+def _make_graph_var(rs: Resources, algorithm: AlgorithmName,
+                    devices: set[HostName], constraint: str,
+                    db_factory: DBMeasurementFactory) -> None:
+    log.info(f"[Var] {algorithm}: Collecting data")
+
+    data: dict[HostName, Tuple[str, float, float, int]] = {}
+    for point in db_factory.stats(algorithm, constraint):
+        if point[0].hostname not in devices:
+            continue
+
+        data[point[0].hostname] = point[1]
+
+    log.info(f"[Var] {algorithm}: Generating graph")
+    file_name = algorithm.replace(':', '_') + '.' + FILE_EXT
+    graph_path = os.path.join(rs.args.output_path, file_name)
+
+    log.info(f"[Var] {algorithm}: {file_name}")
+    _plot_graph_var(data, algorithm, graph_path, rs.args, _get_labeler(rs))
+
+
+def _resolve_algorithm_list(rs: Resources) -> list[AlgorithmName]:
+    if len(rs.args.algorithm) == 1 and rs.args.algorithm[0] == 'all':
+        return list(get_algorithms(rs).keys())
+
+    return cast(list[str], rs.args.algorithm)
+
+
+def make_graph_var(rs: Resources) -> None:
+    matplotlib_setup()
+    db_factory = cast(DBMeasurementFactory, rs.factory.get(DBMeasurementFactory))
+    if db_factory is None:
+        log.error("Currently this mode is supported only for database source")
+        return
+
+    devices = set(get_devices(rs))
+
+    constraint: str = ""
+    match rs.args.sources:
+        case None | []:
+            constraint = "@db"
+        case [query]:
+            constraint = query
+        case _:
+            log.warning("Multiple sources specified, trying to concatenate into one")
+            constraint = " and ".join(rs.args.sources)
+
+    os.makedirs(rs.args.output_path, exist_ok=True)
+    for algorithm in _resolve_algorithm_list(rs):
+        _make_graph_var(rs, algorithm, devices, constraint, db_factory)
+
+
+def _plot_graph_box(datapoints: dict[HostName, list[Tuple[TimeStamp, list[float]]]],
+                    name: AlgorithmName, graph_name: FileName,
+                    options: argparse.Namespace) -> None:
+    devices_count = len(datapoints.keys())
+    with create_subplots(figsize=(16, 4 * devices_count), nrows=devices_count,
+                         layout='constrained') as (fig, axs):
+        # Force axs to be an array if devices_count is one
+        if devices_count == 1:
+            axs = [axs]
+
+        fig.suptitle(name)
+
+        for graph, (host, data) in zip(axs, datapoints.items()):
+            # Workaround for broken ‹numpy.typing›:
+            assert isinstance(graph, matplotlib.axes.Axes)
+
+            graph.set_title(host)
+            graph.set_xlabel('Measurement month (T) [m]')
+            graph.set_ylabel('Time (t) [s]')
+
+            graph.grid(True)
+
+            # Thank Hatshepsut for this:
+            # https://stackoverflow.com/questions/27214537/is-it-possible-to-draw-a-boxplot-given-the-percentile-values-instead-of-the-orig
+
+            boxes = []
+            for (ts, q) in data:
+                boxes.append({
+                    'label': ts.strftime('%Y-%m'),
+                    'whislo': q[0],
+                    'q1': q[1],
+                    'med': q[2],
+                    'q3': q[3],
+                    'whishi': q[4],
+                    'fliers': [],
+                })
+
+            graph.bxp(boxes, showfliers=False,  # type: ignore
+                      boxprops={'linewidth': 2, 'color': 'blue'})
+
+            # for label in graph.get_xticklabels(which='major'):  # type: ignore
+            #     label.set(rotation=30, horizontalalignment='right')
+
+        fig.savefig(graph_name)
+
+
+def _make_graph_box(rs: Resources, algorithm: AlgorithmName,
+                    devices: set[HostName], db_factory: DBMeasurementFactory) -> None:
+    log.info(f"[Box] {algorithm}: Collecting data")
+
+    data: dict[HostName, list[Tuple[TimeStamp, list[float]]]] = {}
+    for point in db_factory.box_stats(algorithm):
+        if point[0].hostname not in devices:
+            continue
+
+        rows = data.setdefault(point[0].hostname, [])
+        rows.append((point[2], point[1]))
+
+    log.info(f"[Box] {algorithm}: Generating graph")
+    file_name = algorithm.replace(':', '_') + '.' + FILE_EXT
+    graph_path = os.path.join(rs.args.output_path, file_name)
+
+    log.info(f"[Box] {algorithm}: {file_name}")
+    _plot_graph_box(data, algorithm, graph_path, rs.args)
+
+
+def make_graph_box(rs: Resources) -> None:
+    matplotlib_setup()
+    db_factory = cast(DBMeasurementFactory, rs.factory.get(DBMeasurementFactory))
+    if db_factory is None:
+        log.error("Currently this mode is supported only for database")
+        return
+
+    devices = set(get_devices(rs))
+    os.makedirs(rs.args.output_path, exist_ok=True)
+
+    for algorithm in _resolve_algorithm_list(rs):
+        _make_graph_box(rs, algorithm, devices, db_factory)
+
+
+def _plot_graph_histogram(algorithm: AlgorithmName, datapoints: dict[HostName, list[float]],
+                          graph_path: FileName, labeler: Labeler = id_labeler) -> None:
+    with create_subplots() as (fig, axs):
+        graph = axs
+
+        # Workaround for broken typing
+        assert isinstance(graph, matplotlib.axes.Axes)
+
+        fig.suptitle(algorithm)
+
+        handles = []
+        labels: list[str] = []
+
+        for host, data in datapoints.items():
+            m = _get_host_marker(host)
+            graph.hist(data, bins=100, color=m['color'])  # type: ignore
+
+            if (label := labeler(host)) is not None:
+                handles.append(pla.Rectangle((0, 0), 1, 1, color=m['color'], ec="k"))
+                labels.append(label)
+
+        graph.set_xlabel('Duration (t) [s]')
+        graph.set_ylabel('Count (n) [1]')
+
+        if labels != [] and options.legend:
+            graph.legend(handles, labels)
+
+        fig.tight_layout()
+        fig.savefig(graph_path)
+
+
+def make_graph_hist(rs: Resources) -> None:
+    matplotlib_setup()
+    lens: AggregatorLens[list[float]] = AggregatorLens('values')
+    algorithms = _resolve_algorithm_list(rs)
+
+    log.info("[Histogram] Collecting data")
+
+    data: dict[AlgorithmName, dict[HostName, list[float]]] = {}
+    for point in select_data(rs, algorithms, lens):
+        part = data.setdefault(point.algorithm, {})
+        values = part.setdefault(point.host, [])
+        values.extend(point.value)
+
+    os.makedirs(rs.args.output_path, exist_ok=True)
+
+    for algorithm in algorithms:
+        if algorithm not in data:
+            log.warning(f"[Histogram] {algorithm}: No data")
+            continue
+
+        log.info(f"[Histogram] {algorithm}: Generating graph")
+        file_name = algorithm.replace(':', '_') + '.' + FILE_EXT
+        graph_path = os.path.join(rs.args.output_path, file_name)
+        log.info(f"[Histogram] {algorithm}: {graph_path}")
+
+        _plot_graph_histogram(algorithm, data[algorithm], graph_path,
+                              _get_labeler(rs))
+
+
+def create_argparser() -> argparse.ArgumentParser:
+    argp = argparse.ArgumentParser(prog='TPM Graphs')
+    argp.add_argument('--log-level',
+                      choices=log.getLevelNamesMapping().keys())
+    argp.add_argument('--database', '--db', type=str, help="Connect database driver")
+
+    subcommands = argp.add_subparsers(help='Commands', dest="command")
+    hosts = subcommands.add_parser('hosts', help='List available hosts')
+    hosts.add_argument('--tpm', action='store_true', help='Show TPM data for each measurement')
+    dates = subcommands.add_parser('dates', help='Determine measurement dates')
+    perfs = subcommands.add_parser('perfs', help='List common Perf measurements')
+    perfs.add_argument('--verbose', '-v', action='store_true', help='Show which hosts support this')
+    aggregate = subcommands.add_parser('aggregate', help='Aggregate values, useful for debugging')
+
+    aggregate.add_argument('--aggregator', default='median', help='Aggregator function')
+    aggregate.add_argument('--algorithm', required=True, help='Algorithm')
+
+    db_read = subcommands.add_parser('db.read',
+                                     help='Construct a SQLite database for faster access')
+
+    graph_perf = subcommands.add_parser('graph.perf', help='Create performance graph of a measurement')
+    graph_var = subcommands.add_parser('graph.var', help='Create variance scatter graph')
+    graph_box = subcommands.add_parser('graph.box', help='Create error box graph')
+    graph_histogram = subcommands.add_parser('graph.histogram', help='Create performance histogram')
+
+    # Common graph options
+    for graph in [graph_perf, graph_var, graph_box, graph_histogram]:
+        graph.add_argument('--aggregator', '-A', default='median', help='Aggregator function')
+        graph.add_argument('--algorithm', '-a', required=True, action='append',
+                           help='Name of the algorithm')
+        graph.add_argument('--column', default='duration', help='Select data column')
+        graph.add_argument('--label', choices=['hostname', 'shorthost', 'none'],
+                           default='hostname',
+                           help='Label type')
+        graph.add_argument('--output-path', '-O', default=os.getcwd(),
+                           help='Path where graphs shall be stored')
+        graph.add_argument('--prefix', default="",
+                           help='Prefix for resulting file names')
+
+    # Options for performance and variance graphs
+    for graph in [graph_perf, graph_var]:
+        graph.add_argument('--scale-x', choices=['linear', 'log'],
+                           default='linear',
+                           help='X-axis scale')
+        graph.add_argument('--scale-y', choices=['linear', 'log'],
+                           default='linear',
+                           help='Y-axis scale')
+        graph.add_argument('--title', help='Override plot title')
+        graph.add_argument('--ticks-x', action='append', help='Set x-axis ticks')
+
+    # Other special options
+    for graph in [graph_var, graph_histogram]:
+        graph.add_argument('--legend', action=argparse.BooleanOptionalAction,
+                           default=True,
+                           help='Show legend')
+
+    graph_var.add_argument('--vendors', action='store_true',
+                           help='Encode colours by vendors instead of hosts')
+
+    for subparser in [hosts, dates, perfs, aggregate, db_read, graph_perf,
+                      graph_var, graph_box, graph_histogram]:
+        subparser.add_argument('sources', nargs='*')
+
+    return argp
+
+
+def get_factory(args: argparse.Namespace, rsmgr: ExitStack) -> MeasurementWorkshop:
+    factory: MeasurementWorkshop = MeasurementWorkshop()
+
+    factory.add(FileAdapterFactory(ZipMeasurementFactory()))
+
+    if args.database is not None:
+        database = Database(args.database)
+        db_handle = rsmgr.enter_context(database.connect())
+        factory.add(DBMeasurementFactory(database, db_handle))
+
+    return factory
+
+
+def get_log_level(args: argparse.Namespace, default: str = "INFO") -> int:
+    log_level = default if args.log_level is None else args.log_level
+    return log.getLevelNamesMapping()[log_level]
+
+
+argp = create_argparser()
+args = argp.parse_args()
+
+log.basicConfig(level=get_log_level(args))
+
+with ExitStack() as rsmgr:
+    factory = get_factory(args, rsmgr)
+    rs = Resources(factory, args)
+
+    if args.command == 'hosts':
+        list_hosts(rs)
+    elif args.command == 'perfs':
+        list_algorithms(rs)
+    elif args.command == 'dates':
+        list_dates(rs)
+    elif args.command == 'aggregate':
+        aggregate(rs)
+    elif args.command == 'db.read':
+        db_read(rs)
+    elif args.command == 'graph.perf':
+        make_graph_perf(rs)
+    elif args.command == 'graph.var':
+        make_graph_var(rs)
+    elif args.command == 'graph.box':
+        make_graph_box(rs)
+    elif args.command == 'graph.histogram':
+        make_graph_hist(rs)
+    else:
+        argp.print_usage()
