@@ -1,3 +1,6 @@
 [submodule "tpmscan-dataset"]
 	path = tpmscan-dataset
 	url = https://github.com/crocs-muni/tpmscan-dataset
+[submodule "analysis/rsa/algtest-pyprocess"]
+	path = analysis/algtest-pyprocess
+	url = https://github.com/crocs-muni/algtest-pyprocess.git
