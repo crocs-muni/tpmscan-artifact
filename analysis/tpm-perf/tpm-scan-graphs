@@ -1,0 +1,37 @@
+#!/bin/sh
+
+script_path=$(readlink --canonicalize "$0")
+script_bin=$(dirname "${script_path}")
+script_name=$(basename "${script_path}")
+
+# Script name shorthand.
+TPMDB="${script_bin}/tpm-graphs --db postgresql://${USER}@/${DATABASE:-tpm}"
+
+source "${script_bin}/data.sh"
+
+# -- Assorted graphs for the paper --------------------------------------------
+
+echo "Creating graphs"
+
+$TPMDB graph.var --output-path results --label=none --vendor \
+	--title="Variability of RSA 2048b key generation" \
+	--ticks=3,5,10,30 -a Perf_Create:RSA_2048 --scale-x=log \
+	db:"($date_tpm_scan or $date_tpm_scan_added) and $no_vmw and $host_all_filtered"
+
+$TPMDB graph.var --output-path results --label=none --vendor \
+	--title="Variability of ECDSA-P256 signature" \
+	--ticks=0.01,0.05,0.1,0.5 --no-legend --scale-x=log --scale-y=log \
+	-a Perf_Sign:ECC_0x0003_0x0018 \
+	db:"($date_tpm_scan or $date_tpm_scan_added) and $no_vmw and $host_all_filtered"
+
+
+# -- Labels for the graphs ----------------------------------------------------
+
+echo "Creating graph labels"
+
+"${script_bin}"/data-clusters/query.sh tpm-scan.sql Perf_Create:RSA_2048 \
+	"($date_tpm_scan or $date_tpm_scan_added) and $no_vmw and $host_all_filtered" \
+	>results/Perf_Create_RSA_2048.txt
+"${script_bin}"/data-clusters/query.sh tpm-scan.sql Perf_Sign:ECC_0x0003_0x0018 \
+	"($date_tpm_scan or $date_tpm_scan_added) and $no_vmw and $host_all_filtered" \
+	>results/Perf_Sign_ECC_0x0003_0x0018.txt
