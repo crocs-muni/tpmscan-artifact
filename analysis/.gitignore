@@ -7,3 +7,4 @@ nonces_plots/
 *.pdf
 *.json
 *.txt
+*.log
