@@ -4,3 +4,9 @@
 [submodule "analysis/rsa/algtest-pyprocess"]
 	path = analysis/algtest-pyprocess
 	url = https://github.com/crocs-muni/algtest-pyprocess.git
+[submodule "tpm_pcr"]
+	path = tpm_pcr
+	url = https://github.com/petrs/tpm_pcr
+[submodule "tpm2-algtest"]
+	path = tpm2-algtest
+	url = https://github.com/crocs-muni/tpm2-algtest
