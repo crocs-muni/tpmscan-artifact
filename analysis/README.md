@@ -13,6 +13,12 @@ bash preprocess.sh # preprocesses outputs for rsa and timeline notebooks
 jupyter notebook
 ```
 
+## Certificate analysis
+
+The `certs` directory contains Jupyter notebook used for producing **Figure 1**.
+
+Before running the script, download preprocessed CC and FIPS certificates from https://drive.google.com/file/d/1kjnwSdBmoUrK4croKmP5ELmWzXRnuxMz/view?usp=drive_link and extract them to the `certs` directory.
+
 ## ECC analysis
 
 The `ecc_keys.ipynb` notebook creates `keys/` directory with concatenation of all generated keys for further analysis, and `keys_plots/` directory with plots showing timing dependency of private key significant bit length on key generation time for some firmwares.
