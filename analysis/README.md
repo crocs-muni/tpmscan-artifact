@@ -8,9 +8,8 @@ Run the following commands before inspecting individual notebooks:
 python -m venv venv
 source venv/bin/activate
 # You may also need some additional packages installed, on Ubuntu:
-# sudo apt install build-essential libgmp-dev libpq-dev
-pip install ./algtest-pyprocess notebook pyyaml fastecdsa pandas matplotlib ipykernel booltest dogpile-cache sqlalchemy numpy psycopg2
-python -m ipykernel install --user --name venv
+# sudo apt install build-essential libgmp-dev
+pip install algtestprocess notebook pyyaml fastecdsa pandas matplotlib ipykernel booltest
 bash preprocess.sh # preprocesses outputs for rsa and timeline notebooks
 jupyter notebook
 ```

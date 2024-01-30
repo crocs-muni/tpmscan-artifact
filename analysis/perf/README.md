@@ -17,6 +17,7 @@ The following Python modules are required:
 * `numpy`
 * `sqlalchemy` (for database)
 * `dogpile-cache` (for database)
+* `psycopg2` (for database)
 
 Install preferably from your system repository. If that is not possible or
 there are no such packages, use `pip` as follows:
@@ -92,7 +93,7 @@ There are many optional steps which were found useful to speed up graph
 generation process. They should not be necessary, but their omission may result
 in the graph generation to be very slow.
 
-1. Install `dogpile-cache`, `psycopg2`, `sqlalchemy` and `numpy` python packages (these are already installed in the `venv` recommended for analysis notebooks).
+1. Install `dogpile-cache`, `psycopg2`, `sqlalchemy` and `numpy` python packages.
 
 2. Install PostgreSQL and create a `tpm` database for the current user `$USER`.
 
