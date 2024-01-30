@@ -83,16 +83,16 @@ If a new host was added, it is recommended to create a partition for it under
 the `data` table. The `scripts/partition.pl` should take care of that.
 
 
-## How to reproduce TPM Scan paper's Figure 6
+## How to reproduce TPMScan paper's Figure 6
 
 Here follows a step-by-step list of instructions to reproduce Figure 6 and
-version labels from the TPM Scan paper.
+version labels from the TPMScan paper.
 
 There are many optional steps which were found useful to speed up graph
 generation process. They should not be necessary, but their omission may result
 in the graph generation to be very slow.
 
-1. Install Dogpile, SQLAlchemy and Numpy.
+1. Install `dogpile-cache`, `psycopg2`, `sqlalchemy` and `numpy` python packages (these are already installed in the `venv` recommended for analysis notebooks).
 
 2. Install PostgreSQL and create a `tpm` database for the current user `$USER`.
 
@@ -106,14 +106,15 @@ in the graph generation to be very slow.
 
 3. Create `cache` directory if it does not exist already.
 
-4. Obtain measurement files and save them to an arbitrary path, which we will
-   refer to as `$MEASUREMENTS` from now on.
+4. Obtain measurement files and save them to directory `./data`.
+   - Measurements from the dataset can be prepared by running script `prepare_data.sh` and output to the `data` directory (the script requires `zip` installed).
+   - Other measurements from university machines can be found on this address: https://drive.google.com/drive/folders/1E2KtHnZ1S_wqoHY4DZ9gMAReZHIQZauy?usp=drive_link
 
 5. (Optional) Populate the database with a single measurement and drop all
    indices and constraints to speed up loading of the entire dataset.
 
       ```sh
-      ls $MEASUREMENTS/*.zip | head -1 | ./tpm-graphs-db db.read -
+      ls data/*.zip | head -1 | ./tpm-graphs-db db.read -
       psql -d "${DATABASE:-tpm}" -1 -f sql/indices-drop.sql
       psql -d "${DATABASE:-tpm}" -1 -f sql/contraints-drop.sql
       ```
@@ -133,7 +134,7 @@ in the graph generation to be very slow.
 7. Load all measurements into the database. This can take up to several hours.
 
       ```sh
-      ls $MEASUREMENTS/*.zip | ./tpm-graphs-db db.read -
+      ls data/*.zip | ./tpm-graphs-db db.read -
       ```
 
 8. (Optional) If you dropped indices and constraints in previous steps, restore
