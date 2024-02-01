@@ -1,0 +1,12 @@
+--- /usr/lib/python3.11/site-packages/matplotlib/dviread.orig.py
++++ /usr/lib/python3.11/site-packages/matplotlib/dviread.py
+@@ -1086,7 +1086,8 @@
+ 
+     if lk:
+         path = lk.search(filename)
+-    else:
++
++    if not path:
+         if os.name == 'nt':
+             # On Windows only, kpathsea can use utf-8 for cmd args and output.
+             # The `command_line_encoding` environment variable is set to force
