@@ -15,9 +15,8 @@ in the last section of this document.
 The following Python modules are required:
 
 * `numpy`
-* `sqlalchemy` (for database)
-* `dogpile-cache` (for database)
-* `psycopg2` (for database)
+* `psycopg2`
+* `sqlalchemy`
 
 Install preferably from your system repository. If that is not possible or
 there are no such packages, use `pip` as follows:
