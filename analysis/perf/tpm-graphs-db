@@ -4,4 +4,6 @@ script_path=$(readlink -f "$0")
 script_bin=$(dirname "${script_path}")
 script_name=$(basename "${script_path}")
 
-exec "${script_bin}/tpm-graphs" --db "postgresql://${USER}@/${DATABASE:-tpm}" "$@"
+TPM_DB_URL=${TPM_DB_URL:-postgresql://${USER}@/tpm}
+
+exec "${script_bin}/tpm-graphs" --db "$TPM_DB_URL" "$@"

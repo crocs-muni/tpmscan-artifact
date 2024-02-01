@@ -5,7 +5,8 @@ script_bin=$(dirname "${script_path}")
 script_name=$(basename "${script_path}")
 
 # Script name shorthand.
-TPMDB="${script_bin}/tpm-graphs --db postgresql://${USER}@/${DATABASE:-tpm}"
+TPM_DB_URL=${TPM_DB_URL:-postgresql://${USER}@/tpm}
+TPM_EXEC="${script_bin}/tpm-graphs --db '$TPM_DB_URL'"
 
 source "${script_bin}/data.sh"
 
@@ -13,23 +14,23 @@ source "${script_bin}/data.sh"
 
 # These were used for the analysis, but are not featured in the article.
 
-$TPMDB graph.var --output-path results/stddev/nymfe -a all \
+$TPM_EXEC graph.var --output-path results/stddev/nymfe -a all \
 	db:"$date_tpm_scan and $host_nymfe_clean"
-$TPMDB graph.var --output-path results/stddev/musa -a all \
+$TPM_EXEC graph.var --output-path results/stddev/musa -a all \
 	db:"$date_tpm_scan and $host_musa_clean"
-$TPMDB graph.var --output-path results/stddev/all -a all \
+$TPM_EXEC graph.var --output-path results/stddev/all -a all \
 	db:"$date_tpm_scan and ($host_musa_clean or $host_nymfe_clean)"
 
-$TPMDB graph.var --output-path results/stddev/wide \
+$TPM_EXEC graph.var --output-path results/stddev/wide \
 	--label=none --vendor -a Perf_GetRandom \
 	db:"$date_tpm_scan"
-$TPMDB graph.var --output-path results/stddev/wide \
+$TPM_EXEC graph.var --output-path results/stddev/wide \
 	--label=none --vendor -a Perf_Create:RSA_1024 \
 	db:"$date_tpm_scan"
-$TPMDB graph.var --output-path results/stddev/wide \
+$TPM_EXEC graph.var --output-path results/stddev/wide \
 	--label=none --vendor -a Perf_Create:RSA_2048 \
 	db:"$date_tpm_scan and $no_vmw and $clean"
-$TPMDB graph.var --output-path results/stddev/wide \
+$TPM_EXEC graph.var --output-path results/stddev/wide \
 	--label=none --vendor -a Perf_Sign:ECC_0x0003_0x0018 \
 	db:"$date_tpm_scan and $no_vmw and $clean"
 
@@ -39,7 +40,7 @@ for hash in Perf_Hash:0x00{04,0b,0c,27,28,12,0d}; do
 		db:"$date_tpm_scan"
 done
 
-$TPMDB graph.var --output-path results/stddev/ifx --label=none --vendor -a all \
+$TPM_EXEC graph.var --output-path results/stddev/ifx --label=none --vendor -a all \
 	db:"$date_tpm_scan and device.hostname not in ('nymfe55', 'ifx-slb9665') and measurement.vendor = 'IFX' and measurement.firmware = 1407645467351296"
 
 
@@ -47,9 +48,9 @@ $TPMDB graph.var --output-path results/stddev/ifx --label=none --vendor -a all \
 
 # These were used for the analysis, but are not featured in the article.
 
-$TPMDB graph.box --output-path results/box/nymfe -a all \
+$TPM_EXEC graph.box --output-path results/box/nymfe -a all \
 	db:"$date_tpm_scan and $host_nymfe_clean"
-$TPMDB graph.box --output-path results/box/musa -a all \
+$TPM_EXEC graph.box --output-path results/box/musa -a all \
 	db:"$date_tpm_scan and $host_musa_clean"
 
 
@@ -58,11 +59,11 @@ $TPMDB graph.box --output-path results/box/musa -a all \
 # These were used for the analysis, but most are not featured in the article.
 # Some refined graphs are defined in the 'create-graphs-tpm-scan'.
 
-$TPMDB graph.perf --output-path results/perf/nymfe-all -a all \
+$TPM_EXEC graph.perf --output-path results/perf/nymfe-all -a all \
 	db:"$date_tpm_scan and $host_nymfe"
-$TPMDB graph.perf --output-path results/perf/nymfe -a all \
+$TPM_EXEC graph.perf --output-path results/perf/nymfe -a all \
 	db:"$date_tpm_scan and $host_nymfe_clean"
-$TPMDB graph.perf --output-path results/perf/musa -a all \
+$TPM_EXEC graph.perf --output-path results/perf/musa -a all \
 	db:"$date_tpm_scan and $host_musa_clean"
 
 
@@ -70,13 +71,13 @@ $TPMDB graph.perf --output-path results/perf/musa -a all \
 
 # These were used for the analysis, but are not featured in the article.
 
-$TPMDB graph.histogram --output-path results/hist1 -a all \
+$TPM_EXEC graph.histogram --output-path results/hist1 -a all \
 	db:"device.hostname in ('nymfe23', 'nymfe102', 'nymfe36')"
-$TPMDB graph.histogram --output-path results/hist1 -a Perf_Sign:ECC_0x0003_0x0018 \
+$TPM_EXEC graph.histogram --output-path results/hist1 -a Perf_Sign:ECC_0x0003_0x0018 \
 	db:"device.hostname in ('ifx-slb9665-cs-office', 'ifx-slb9665')"
-$TPMDB graph.histogram --output-path results/hist1 -a Perf_Create:RSA_2048 \
+$TPM_EXEC graph.histogram --output-path results/hist1 -a Perf_Create:RSA_2048 \
 	db:"device.hostname in ('beaker-733e745c41bbf6f043b01ca35a2d07263d2641bae9c64ebaff3007faf3e32d4e', 'ifx-slb9665-cs-office', 'ifx-slb9665', 'nymfe01')"
-$TPMDB graph.histogram --output-path results/hist1 -a Perf_Create:RSA_2048 \
+$TPM_EXEC graph.histogram --output-path results/hist1 -a Perf_Create:RSA_2048 \
 	db:"device.hostname in ('ifx-slb9665-cs-office', 'ifx-slb9665')"
-$TPMDB graph.histogram --output-path results/hist1 -a Perf_Sign:ECC_0x0003_0x0018 \
+$TPM_EXEC graph.histogram --output-path results/hist1 -a Perf_Sign:ECC_0x0003_0x0018 \
 	db:"$host_nymfe"

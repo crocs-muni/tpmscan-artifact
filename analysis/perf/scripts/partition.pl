@@ -8,9 +8,9 @@ use open ':std', ':encoding(utf-8)';
 use Data::Printer;
 use DBD::Pg;
 use DBI;
-use Env qw{$DATABASE};
+use Env qw{$TPM_DB_NAME};
 
-my $db_name = $DATABASE // 'tpm';
+my $db_name = $TPM_DB_NAME // 'tpm';
 my $db = DBI->connect("dbi:Pg:dbname=$db_name", '', '', {AutoCommit => 0});
 
 sub devices($db) {
