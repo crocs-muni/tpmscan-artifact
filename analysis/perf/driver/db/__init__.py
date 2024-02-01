@@ -45,9 +45,6 @@ from data import MeasurementFactory
 from data import ResourceName
 from data import TimeStamp
 
-from .env import bootstrap
-from .cache import FromCache
-
 T = TypeVar('T')
 ContextManager: TypeAlias = Generator[T, None, None]
 
@@ -170,7 +167,6 @@ class Database:
             device = self.session.execute(
                 select(Device)
                 .where(Device.hostname == hostname)
-                .options(FromCache("default"))
             ).scalars().first()
 
             if device is None:
@@ -203,7 +199,6 @@ class Database:
             algorithm = self.session.execute(
                 select(Algorithm)
                 .where(Algorithm.name == name)
-                .options(FromCache("default"))
             ).scalars().first()
 
             if algorithm is None:
@@ -239,7 +234,6 @@ class Database:
     def connect(self) -> ContextManager["Database.Handle"]:
         try:
             session = Session(self.engine)
-            bootstrap(session)
             yield Database.Handle(session)
 
         finally:
