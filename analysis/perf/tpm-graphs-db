@@ -1,6 +1,6 @@
 #!/bin/sh
 
-script_path=$(readlink --canonicalize "$0")
+script_path=$(readlink -f "$0")
 script_bin=$(dirname "${script_path}")
 script_name=$(basename "${script_path}")
 
