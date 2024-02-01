@@ -6,7 +6,7 @@ A tool to create various graphs from TPM measurements captured by
 The program can read ZIP files to create performance graphs. It can also utilise
 database for more complex statistics, e.g. scatter or box plots for medians.
 
-A step-by-step guide to recreate Figure 6 from the TPM Scan paper is included
+A step-by-step guide to recreate Figure 6 from the TPMScan paper is included
 in the last section of this document.
 
 
@@ -31,20 +31,23 @@ The following modules are recommended for `mypy`:
 
 ## Database setup
 
-An database is required in order to compute scatter and box plots. PostgreSQL is
-recommended, **other database engines were not tested**.
+A database is required in order to compute scatter and box plots. PostgreSQL is
+recommended, **other database engines were not tested**. The database
+is populated the first time `tpm-graphs` is executed with `--db` option
+and a valid database connection. Running the command with no other arguments
+should be sufficient.
 
 SQLAlchemy creates the basic database layout. In addition, the following
 optimisations (especially for huge datasets) are recommended:
 
-* Table partitions for `data`. Use `scripts/partition.pl` script each time a new
-  host is added to the `device` table.
+* Partition `data` table for devices. Use `scripts/partition.pl` script each
+  time a new host is added to the `device` table.
 
 * Create B-tree indices for every column in `data`.
 
 * There is a materialised view utilised by some parts of the script.
   SQLAlchemy can use these views, but it is difficult to create them out of the
-  box. Therefore, run this when creating the database:
+  box. Therefore, run this after creating the database (see `sql/view-setup.sql`):
 
       create materialized view view_algorithms as
       select distinct measurement_id, algorithm_id from data
@@ -66,7 +69,7 @@ When data are loaded, restore all constraints and indices and call `analyze`.
 
 See `sql` directory with prepared queries, e.g.
 
-    psql -dtpm -1A -f sql/drop-constraints.sql
+    psql -d "$TPM_DB_URL" -1Atq -f sql/drop-constraints.sql
 
 ### Adding new data
 
@@ -75,51 +78,107 @@ regularly, as adding too much data at the same time will be slow.
 
 After adding all data, run
 
-    psql -dtpm -1A -e 'refresh materialized view view_algorithms'
+    psql -d "$TPM_DB_URL" -1A -e 'refresh materialized view view_algorithms'
 
 to update the materialized view.
 
 If a new host was added, it is recommended to create a partition for it under
-the `data` table. The `scripts/partition.pl` should take care of that.
+the `data` table if partitions were enabled. The `scripts/partition.pl` should
+take care of that.
 
 
 ## How to reproduce TPMScan paper's Figure 6
 
+### Data Sources
+
+Measurements from the dataset can be prepared by running script
+`prepare_data.sh` and output to the `data` directory (the script requires
+`zip` installed).
+
+Other measurements from university machines can be found on this address:
+https://drive.google.com/drive/folders/1E2KtHnZ1S_wqoHY4DZ9gMAReZHIQZauy?usp=drive_link
+
+### Containers
+
+Using `docker compose`, one can reproduce the results using the scenario
+provided in `compose.yaml`.
+
+1. Ensure `docker` and `docker compose` are installed.
+
+2. Ensure `data` directory with selected measurements exist (see the section
+   above).
+
+   Alternatively, it is possible to add a volume to `compose.yaml` into the
+   `shell` service, for example:
+
+       ```yaml
+       volumes:
+         - "./:/tpm-graphs"
+         - "$MEASUREMENTS:/data"  # Add this line
+       ```
+
+   Replace `$MEASUREMENTS` with a full path to the directory with ZIP files
+   of measurements to be loaded.
+
+   The directory will be available as `/data` in the container rather than
+   `/tpm-graphs/data`. The scenario will inspect both locations.
+
+3. Run `docker compose up --abort-on-container-exit` in the directory with
+   `compose.yaml` file.
+
+3. Once everything is set up, the script will automatically load all
+   sources from `/tpm-graphs/data` or `/data` in the container, and then
+   it will proceed to re-create performance graphs from the paper.
+
+   This operation can take a lot of time, especially for the entire dataset.
+   Thus it is recommended not to destroy volumes for the containers. Especially
+   `postgres` can reuse the existing volume to avoid re-loading the dataset.
+
+4. Outputs will be placed in the `results` directory, which will be visible
+   outside of the container in the directory with the script.
+
+   `*.pdf` files contain raw graphs, `*.txt` files contain point metadata,
+   including firmware versions, that was then used to manually annotate graphs
+   in Inkscape.
+
+To clean up containers and volumes, use `docker compose down`.
+
+### Manual
+
 Here follows a step-by-step list of instructions to reproduce Figure 6 and
-version labels from the TPMScan paper.
+version labels from the TPMScan paper manually.
 
-There are many optional steps which were found useful to speed up graph
-generation process. They should not be necessary, but their omission may result
-in the graph generation to be very slow.
+There are many optional steps which were found useful to speed up debugging and
+generating graphs. They should not be necessary, but their omission can make
+the process much slower.
 
-1. Install `dogpile-cache`, `psycopg2`, `sqlalchemy` and `numpy` python packages.
+1. Install `numpy`, `psycopg2` and `sqlalchemy` python packages.
 
 2. Install PostgreSQL and create a `tpm` database for the current user `$USER`.
+   Usually, as `root`, run `psql -U postgres` and execute (replacing `$USER`
+   with a real user login):
 
       ```sql
       create database tpm;
       alter database tpm set owner to $USER;
       ```
 
-   Alternative database name can also be used by setting `export DATABASE=name`
-   environment variable for all of the following commands.
+   Alternative database name can also be used by setting `export TPM_DB_URL="postgresql://..."`
+   environment variables for all of the following commands.
 
-3. Create `cache` directory if it does not exist already.
+3. Obtain measurement dataset (see section above) and store it in the `data`
+   directory.
 
-4. Obtain measurement files and save them to directory `./data`.
-   - Measurements from the dataset can be prepared by running script `prepare_data.sh` and output to the `data` directory (the script requires `zip` installed).
-   - Other measurements from university machines can be found on this address: https://drive.google.com/drive/folders/1E2KtHnZ1S_wqoHY4DZ9gMAReZHIQZauy?usp=drive_link
-
-5. (Optional) Populate the database with a single measurement and drop all
-   indices and constraints to speed up loading of the entire dataset.
+4. (Optional) Populate the database and drop all indices and constraints to
+   speed up loading of the entire dataset.
 
       ```sh
-      ls data/*.zip | head -1 | ./tpm-graphs-db db.read -
-      psql -d "${DATABASE:-tpm}" -1 -f sql/indices-drop.sql
-      psql -d "${DATABASE:-tpm}" -1 -f sql/contraints-drop.sql
+      ./tpm-graphs-db
+      psql -d "$TPM_DB_URL" -1 -f sql/indices-drop.sql
+      psql -d "$TPM_DB_URL" -1 -f sql/contraints-drop.sql
       ```
 
-6. (Optional) Re-create table `data` with partitioning on `LIST (device_id)`,
+5. (Optional) Re-create table `data` with partitioning on `LIST (device_id)`,
    which should speed up graph generation significantly.
 
    Unfortunately, there is no easy automated way to do this -- SQLAlchemy
@@ -131,37 +190,36 @@ in the graph generation to be very slow.
    a default partition. Then simply copy data from `data_old` and delete the
    old table.
 
-7. Load all measurements into the database. This can take up to several hours.
+6. Load all measurements into the database. This can take up to several hours.
 
       ```sh
-      ls data/*.zip | ./tpm-graphs-db db.read -
+      find data -name '*.zip' | ./tpm-graphs-db db.read -
       ```
 
-8. (Optional) If you dropped indices and constraints in previous steps, restore
+7. (Optional) If you dropped indices and constraints in previous steps, restore
    them now.
 
       ```sh
-      psql -d "${DATABASE:-tpm}" -1 -f sql/constraints-setup.sql
-      psql -d "${DATABASE:-tpm}" -1 -f sql/indices-setup.sql
+      psql -d "$TPM_DB_URL" -1 -f sql/constraints-setup.sql
+      psql -d "$TPM_DB_URL" -1 -f sql/indices-setup.sql
       ```
 
-9. Setup additional views and functions used for graph creation and analysis.
+8. Setup additional views and functions used for graph creation and analysis.
 
       ```sh
-      psql -d "${DATABASE:-tpm}" -1 -f sql/version.sql
-      psql -d "${DATABASE:-tpm}" -1 -f sql/view-setup.sql
+      psql -d "$TPM_DB_URL" -1 -f sql/version.sql
+      psql -d "$TPM_DB_URL" -1 -f sql/view-setup.sql
       ```
 
-10. (Optional) If you created table partitions, you re-partition the data
+9. (Optional) If you created table partitions, you re-partition the data
     using `scripts/partition.pl`.
 
-11. Finally, create graphs and data clusters from the paper. A convenience
-   script has been provided.
+10. Finally, create graphs and data clusters from the paper. A convenience
+    script has been provided.
 
       ```sh
       ./tpm-scan-graphs
       ```
 
-    Files will be written into `results` directory. `*.pdf` files contain
-    raw graphs, `*.txt` files contain point metadata, including firmware
-    versions, that was then used to manually annotate graphs in Inkscape.
+   Files will be written into `results` directory as with the Docker Compose
+   method described above.
