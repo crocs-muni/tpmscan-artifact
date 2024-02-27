@@ -16,7 +16,7 @@ Build CSVs of signatures collected in the dataset (requires `python` and `pyyaml
 python extract_signatures.py
 ```
 
-Run the attack on vulnerable TPM firmwares (requires `sagemath`), for example:
+Run the attack on vulnerable TPM firmwares (requires `sagemath` ([installation instructions](https://doc.sagemath.org/html/en/installation/))), for example:
 
 ```
 sage poc.sage signatures/INTC_303.12.0.0_P256_ECDSA_820305b505ee236c.csv --alg ECDSA --curve P256
