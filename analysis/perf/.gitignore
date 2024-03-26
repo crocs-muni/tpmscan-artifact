@@ -9,5 +9,8 @@
 /data*/
 /result*/
 
+# But do not ignore data-clusters, which contains useful scripts.
+!/data-clusters
+
 # Do not ignore requirements.txt.
 !requirements.txt
