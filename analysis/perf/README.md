@@ -6,86 +6,6 @@ A tool to create various graphs from TPM measurements captured by
 The program can read ZIP files to create performance graphs. It can also utilise
 database for more complex statistics, e.g. scatter or box plots for medians.
 
-A step-by-step guide to recreate Figure 6 from the TPMScan paper is included
-in the last section of this document.
-
-
-## Dependencies
-
-The following Python modules are required:
-
-* `numpy`
-* `psycopg2`
-* `sqlalchemy`
-
-Install preferably from your system repository. If that is not possible or
-there are no such packages, use `pip` as follows:
-
-    pip3 install --user --break-system-packages ${PACKAGES...}
-
-The following modules are recommended for `mypy`:
-
-* `data-science-types`
-* `types-PyYAML`
-
-
-## Database setup
-
-A database is required in order to compute scatter and box plots. PostgreSQL is
-recommended, **other database engines were not tested**. The database
-is populated the first time `tpm-graphs` is executed with `--db` option
-and a valid database connection. Running the command with no other arguments
-should be sufficient.
-
-SQLAlchemy creates the basic database layout. In addition, the following
-optimisations (especially for huge datasets) are recommended:
-
-* Partition `data` table for devices. Use `scripts/partition.pl` script each
-  time a new host is added to the `device` table.
-
-* Create B-tree indices for every column in `data`.
-
-* There is a materialised view utilised by some parts of the script.
-  SQLAlchemy can use these views, but it is difficult to create them out of the
-  box. Therefore, run this after creating the database (see `sql/view-setup.sql`):
-
-      create materialized view view_algorithms as
-      select distinct measurement_id, algorithm_id from data
-
-  It is recommended to add indices on this view as well.
-
-
-## Database tweaks
-
-### Loading initial data
-
-Loading a huge amount of data into the database is slow. The following
-might make it faster:
-
-* Drop all constraints on `data`.
-* Drop all indices on `data`.
-
-When data are loaded, restore all constraints and indices and call `analyze`.
-
-See `sql` directory with prepared queries, e.g.
-
-    psql -d "$TPM_DB_URL" -1Atq -f sql/drop-constraints.sql
-
-### Adding new data
-
-Just run the `db.read` command of the script. The command should be run
-regularly, as adding too much data at the same time will be slow.
-
-After adding all data, run
-
-    psql -d "$TPM_DB_URL" -1A -e 'refresh materialized view view_algorithms'
-
-to update the materialized view.
-
-If a new host was added, it is recommended to create a partition for it under
-the `data` table if partitions were enabled. The `scripts/partition.pl` should
-take care of that.
-
 
 ## How to reproduce TPMScan paper's Figure 6
 
@@ -212,7 +132,7 @@ the process much slower.
       psql -d "$TPM_DB_URL" -1 -f sql/view-setup.sql
       ```
 
-9. (Optional) If you created table partitions, you re-partition the data
+9. (Optional) If you created table partitions, re-partition the data
     using `scripts/partition.pl`.
 
 10. Finally, create graphs and data clusters from the paper. A convenience
@@ -224,3 +144,76 @@ the process much slower.
 
    Files will be written into `results` directory as with the Docker Compose
    method described above.
+
+## Dependencies
+
+The dependencies are listed in `requirements.txt`. Preferably install these
+from your system repository.
+
+If that is not possible or there are no such packages, use `pip` in virtual
+environment:
+
+   ```sh
+   python -mvenv env
+   source env/bin/activate
+   pip install -r requirements.txt
+   ```
+
+
+## Database setup
+
+A database is required in order to compute scatter and box plots. PostgreSQL is
+recommended, **other database engines were not tested**. The database
+is populated the first time `tpm-graphs` is executed with `--db` option
+and a valid database connection. Running the command with no other arguments
+should be sufficient.
+
+SQLAlchemy creates the basic database layout. In addition, the following
+optimisations (especially for huge datasets) are recommended:
+
+* Partition `data` table for devices. Use `scripts/partition.pl` script each
+  time a new host is added to the `device` table.
+
+* Create B-tree indices for every column in `data`.
+
+* There is a materialised view utilised by some parts of the script.
+  SQLAlchemy can use these views, but it is difficult to create them out of the
+  box. Therefore, run this after creating the database (see `sql/view-setup.sql`):
+
+      create materialized view view_algorithms as
+      select distinct measurement_id, algorithm_id from data
+
+  It is recommended to add indices on this view as well.
+
+
+## Database tweaks
+
+### Loading initial data
+
+Loading a huge amount of data into the database is slow. The following
+might make it faster:
+
+* Drop all constraints on `data`.
+* Drop all indices on `data`.
+
+When data are loaded, restore all constraints and indices and call `analyze`.
+
+See `sql` directory with prepared queries, e.g.
+
+    psql -d "$TPM_DB_URL" -1Atq -f sql/drop-constraints.sql
+
+### Adding new data
+
+Just run the `db.read` command of the script. The command should be run
+regularly as new measurements are obtained, because adding too much data at the
+same time will be slow.
+
+After adding all data, run
+
+    psql -d "$TPM_DB_URL" -1A -e 'refresh materialized view view_algorithms'
+
+to update the materialized view.
+
+If a new host was added, it is recommended to create a partition for it under
+the `data` table if partitions were enabled. The `scripts/partition.pl` should
+take care of that.
