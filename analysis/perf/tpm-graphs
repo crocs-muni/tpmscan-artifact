@@ -632,7 +632,7 @@ def make_graph_hist(rs: Resources) -> None:
 
 
 def create_argparser() -> argparse.ArgumentParser:
-    argp = argparse.ArgumentParser(prog='TPM Graphs')
+    argp = argparse.ArgumentParser(description='TPM Performance Analysis Graphs')
     argp.add_argument('--log-level',
                       choices=log.getLevelNamesMapping().keys())
     argp.add_argument('--database', '--db', type=str, help="Connect database driver")
