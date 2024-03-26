@@ -1,0 +1,9 @@
+matplotlib ~= 3.8
+numpy ~= 1.26
+psycopg2 ~= 2.9
+pyaml ~= 23.12
+sqlalchemy ~= 2.0.28
+
+# Optional requirements for type checking
+data-science-types
+types-PyYAML

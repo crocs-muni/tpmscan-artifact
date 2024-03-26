@@ -8,3 +8,6 @@
 # Ignore directories looking like results or test data
 /data*/
 /result*/
+
+# Do not ignore requirements.txt.
+!requirements.txt

@@ -152,7 +152,8 @@ There are many optional steps which were found useful to speed up debugging and
 generating graphs. They should not be necessary, but their omission can make
 the process much slower.
 
-1. Install `numpy`, `psycopg2` and `sqlalchemy` python packages.
+1. Install Python dependencies from `requirements.txt`. If using `pip` in
+   a virtual environment, run `pip install -r requirements.txt`.
 
 2. Install PostgreSQL and create a `tpm` database for the current user `$USER`.
    Usually, as `root`, run `psql -U postgres` and execute (replacing `$USER`
