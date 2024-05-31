@@ -1,4 +1,4 @@
-# TPMScan Artifact
+# TPMScan Artifact,  [🏆 IACR CHES Results Reproduced](https://artifacts.iacr.org/tches/2024/a17/)
 
 This repository contains the artifact to paper *TPMScan: A wide-scale study of security-relevant properties of TPM 2.0 chips* accepted to CHES 2024.
 
